@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A0C732E2190B72C00C37D91 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C732D2190B72C00C37D91 /* background.jpg */; };
+		7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECF82190D9B90067495C /* cloud1.png */; };
+		7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECFA2190DA1A0067495C /* cloud2.png */; };
 		7ABD528F218F67360012DC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD528E218F67360012DC9A /* AppDelegate.swift */; };
 		7ABD5291218F67360012DC9A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD5290218F67360012DC9A /* ViewController.swift */; };
 		7ABD5294218F67360012DC9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7ABD5292218F67360012DC9A /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		7A0C732D2190B72C00C37D91 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		7AA0ECF82190D9B90067495C /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud1.png; sourceTree = "<group>"; };
+		7AA0ECFA2190DA1A0067495C /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud2.png; sourceTree = "<group>"; };
 		7ABD528B218F67360012DC9A /* Sevilla_MobileComputingCoursework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sevilla_MobileComputingCoursework.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7ABD528E218F67360012DC9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7ABD5290218F67360012DC9A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		7ABD528D218F67360012DC9A /* Sevilla_MobileComputingCoursework */ = {
 			isa = PBXGroup;
 			children = (
+				7AA0ECFA2190DA1A0067495C /* cloud2.png */,
+				7AA0ECF82190D9B90067495C /* cloud1.png */,
 				7ABD528E218F67360012DC9A /* AppDelegate.swift */,
 				7ABD5290218F67360012DC9A /* ViewController.swift */,
 				7ABD5292218F67360012DC9A /* Main.storyboard */,
@@ -236,6 +242,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABD52BD218F68770012DC9A /* ground.jpg in Resources */,
+				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
+				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,
 				7ABD5299218F67370012DC9A /* LaunchScreen.storyboard in Resources */,
 				7ABD5296218F67370012DC9A /* Assets.xcassets in Resources */,

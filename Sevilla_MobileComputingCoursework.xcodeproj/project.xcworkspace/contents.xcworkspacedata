@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Sevilla_MobileComputingCoursework.xcodeproj">
+      location = "group:/Users/alexsev97/Desktop/Xcode/Sevilla_MobileComputingCoursework/Sevilla_MobileComputingCoursework/cloud1.png">
+   </FileRef>
+   <FileRef
+      location = "group:../Sevilla_MobileComputingCoursework/cloud2.png">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -17,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
-                                <rect key="frame" x="0.0" y="0.0" width="526.5" height="385"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-P8-dO3">
+                                <rect key="frame" x="518" y="0.0" width="527" height="385"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
+                                <rect key="frame" x="0.0" y="0.0" width="519" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="height" multiplier="513:375" id="HGn-7S-K9Q"/>
                                 </constraints>
@@ -30,8 +33,22 @@
                                     <constraint firstAttribute="height" constant="45" id="gPq-da-dbk"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-P8-dO3">
-                                <rect key="frame" x="526.5" y="0.0" width="527" height="385"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k3B-02-bIf">
+                                <rect key="frame" x="1053.5" y="0.0" width="526.5" height="385"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zrP-pT-PVD">
+                                <rect key="frame" x="381" y="85" width="321" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="5Pj-oJ-dNU"/>
+                                    <constraint firstAttribute="width" constant="321" id="gDP-s4-ghn"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cloud1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SUr-hG-5xa">
+                                <rect key="frame" x="122" y="0.0" width="463" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="175" id="2RT-1S-1vM"/>
+                                    <constraint firstAttribute="width" constant="500" id="Wwr-yc-ahq"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -39,17 +56,28 @@
                             <constraint firstItem="05V-qU-qvR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2eA-fo-u9D"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="height" secondItem="05V-qU-qvR" secondAttribute="height" id="5os-Ho-0Jb"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="leading" secondItem="05V-qU-qvR" secondAttribute="trailing" id="6bk-i1-AI1"/>
+                            <constraint firstItem="SUr-hG-5xa" firstAttribute="top" secondItem="RLX-he-AaW" secondAttribute="top" id="6ld-Ks-0dh"/>
+                            <constraint firstItem="SUr-hG-5xa" firstAttribute="leading" secondItem="RLX-he-AaW" secondAttribute="leading" constant="150" id="8NL-Zu-h80"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pz5-ZN-vfS"/>
+                            <constraint firstItem="k3B-02-bIf" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Y2d-Lg-B16"/>
                             <constraint firstAttribute="bottom" secondItem="41k-84-rup" secondAttribute="bottom" id="a0i-Ab-DJE"/>
+                            <constraint firstItem="zrP-pT-PVD" firstAttribute="top" secondItem="RLX-he-AaW" secondAttribute="top" constant="85" id="aFp-vb-XfN"/>
+                            <constraint firstItem="k3B-02-bIf" firstAttribute="height" secondItem="dyC-P8-dO3" secondAttribute="height" id="as9-xW-rdh"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="width" id="cjZ-ae-voW"/>
+                            <constraint firstItem="k3B-02-bIf" firstAttribute="leading" secondItem="dyC-P8-dO3" secondAttribute="trailing" id="dDu-YA-Bw1"/>
+                            <constraint firstItem="k3B-02-bIf" firstAttribute="width" secondItem="dyC-P8-dO3" secondAttribute="width" id="gow-by-16v"/>
                             <constraint firstItem="05V-qU-qvR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="o1M-hq-KOo"/>
                             <constraint firstItem="41k-84-rup" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vie-rc-4ph"/>
+                            <constraint firstItem="zrP-pT-PVD" firstAttribute="leading" secondItem="RLX-he-AaW" secondAttribute="leading" constant="381" id="xE5-Av-2lx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RLX-he-AaW"/>
                     </view>
                     <connections>
                         <outlet property="background1View" destination="05V-qU-qvR" id="byT-g4-loU"/>
                         <outlet property="background2View" destination="dyC-P8-dO3" id="HCg-zB-h3m"/>
+                        <outlet property="background3View" destination="k3B-02-bIf" id="k3n-eQ-cke"/>
+                        <outlet property="cloud1View" destination="SUr-hG-5xa" id="A15-6p-Lxv"/>
+                        <outlet property="cloud2View" destination="zrP-pT-PVD" id="gUn-h9-O8h"/>
                         <outlet property="groundView" destination="41k-84-rup" id="Cc3-q4-Fib"/>
                     </connections>
                 </viewController>
@@ -60,6 +88,8 @@
     </scenes>
     <resources>
         <image name="background.jpg" width="513" height="385"/>
+        <image name="cloud1.png" width="569" height="209"/>
+        <image name="cloud2.png" width="738" height="445"/>
         <image name="ground.jpg" width="1148" height="77"/>
     </resources>
 </document>
