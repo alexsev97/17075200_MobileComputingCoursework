@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina5_9" orientation="landscape">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,9 +14,15 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
+                                <rect key="frame" x="0.0" y="0.0" width="526.5" height="385"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="height" multiplier="513:375" id="HGn-7S-K9Q"/>
+                                </constraints>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="41k-84-rup">
                                 <rect key="frame" x="0.0" y="328" width="896" height="47"/>
                                 <constraints>
@@ -24,24 +30,36 @@
                                     <constraint firstAttribute="height" constant="45" id="gPq-da-dbk"/>
                                 </constraints>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-P8-dO3">
+                                <rect key="frame" x="526.5" y="0.0" width="527" height="385"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="05V-qU-qvR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2eA-fo-u9D"/>
+                            <constraint firstItem="dyC-P8-dO3" firstAttribute="height" secondItem="05V-qU-qvR" secondAttribute="height" id="5os-Ho-0Jb"/>
+                            <constraint firstItem="dyC-P8-dO3" firstAttribute="leading" secondItem="05V-qU-qvR" secondAttribute="trailing" id="6bk-i1-AI1"/>
+                            <constraint firstItem="dyC-P8-dO3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Pz5-ZN-vfS"/>
                             <constraint firstAttribute="bottom" secondItem="41k-84-rup" secondAttribute="bottom" id="a0i-Ab-DJE"/>
+                            <constraint firstItem="dyC-P8-dO3" firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="width" id="cjZ-ae-voW"/>
+                            <constraint firstItem="05V-qU-qvR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="o1M-hq-KOo"/>
                             <constraint firstItem="41k-84-rup" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vie-rc-4ph"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RLX-he-AaW"/>
                     </view>
                     <connections>
-                        <outlet property="groundView" destination="41k-84-rup" id="cJp-8E-aMM"/>
+                        <outlet property="background1View" destination="05V-qU-qvR" id="byT-g4-loU"/>
+                        <outlet property="background2View" destination="dyC-P8-dO3" id="HCg-zB-h3m"/>
+                        <outlet property="groundView" destination="41k-84-rup" id="Cc3-q4-Fib"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.59821428571428" y="126.08695652173914"/>
+            <point key="canvasLocation" x="134.48275862068968" y="125.59999999999999"/>
         </scene>
     </scenes>
     <resources>
+        <image name="background.jpg" width="513" height="385"/>
         <image name="ground.jpg" width="1148" height="77"/>
     </resources>
 </document>
