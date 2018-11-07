@@ -9,8 +9,8 @@
 import UIKit
 
 protocol subviewDelegate {
-    func addGravity()
-    func removeGravity()
+    func beginDrag()
+    func endDrag()
 }
 
 class ViewController: UIViewController, subviewDelegate {
@@ -24,7 +24,8 @@ class ViewController: UIViewController, subviewDelegate {
     
     // Main character items
     @IBOutlet weak var marioView: DraggedImageView!
-    
+    var imageArray: [UIImage]!
+    var draggedImageArray: [UIImage]!
     
     // Behavior items
     var dynamicAnimator: UIDynamicAnimator!
@@ -55,7 +56,7 @@ class ViewController: UIViewController, subviewDelegate {
         
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
         
-        gravityBehavior = UIGravityBehavior(items: [])
+        gravityBehavior = UIGravityBehavior(items: [marioView])
         dynamicAnimator.addBehavior(gravityBehavior)
         gravityBehavior.magnitude = 0.3
         
@@ -65,6 +66,11 @@ class ViewController: UIViewController, subviewDelegate {
         
         collisionBehavior.addBoundary(withIdentifier: "barrier" as
             NSCopying, for: UIBezierPath(rect: groundView.frame))
+        
+       
+        imageArray = [UIImage(named: "mario1.png")!,UIImage(named:"mario2.png")!,UIImage(named:"mario3.png")! ]
+        draggedImageArray = [UIImage(named: "dmario1.png")!,UIImage(named:"dmario2.png")!,UIImage(named:"dmario3.png")! ]
+        marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
 
     }
         
@@ -105,12 +111,14 @@ class ViewController: UIViewController, subviewDelegate {
         }
     }
     */
-    func removeGravity() {
+    func beginDrag() {
+        marioView.image = UIImage.animatedImage(with: draggedImageArray, duration: 0.4)
         gravityBehavior.removeItem(marioView)
         collisionBehavior.removeItem(marioView)
     }
     
-    func addGravity() {
+    func endDrag() {
+        marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
     }

@@ -51,7 +51,7 @@
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mario1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gat-g6-xVL" customClass="DraggedImageView" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target">
-                                <rect key="frame" x="292" y="58" width="39" height="59"/>
+                                <rect key="frame" x="40" y="75" width="46" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>

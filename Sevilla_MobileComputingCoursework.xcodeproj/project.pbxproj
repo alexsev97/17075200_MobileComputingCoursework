@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		7A0C732E2190B72C00C37D91 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C732D2190B72C00C37D91 /* background.jpg */; };
+		7A14FE0021933B720048DDBF /* mario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFE21933B720048DDBF /* mario3.png */; };
+		7A14FE0121933B720048DDBF /* mario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFF21933B720048DDBF /* mario2.png */; };
+		7A14FE05219371E70048DDBF /* dmario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE02219371E60048DDBF /* dmario3.png */; };
+		7A14FE06219371E70048DDBF /* dmario1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE03219371E60048DDBF /* dmario1.png */; };
+		7A14FE07219371E70048DDBF /* dmario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE04219371E70048DDBF /* dmario2.png */; };
 		7A70EEBB2191F60C00C92C3B /* mario1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A70EEBA2191F60C00C92C3B /* mario1.png */; };
 		7A70EEBD2191F7C500C92C3B /* DraggedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */; };
 		7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECF82190D9B90067495C /* cloud1.png */; };
@@ -41,6 +46,11 @@
 
 /* Begin PBXFileReference section */
 		7A0C732D2190B72C00C37D91 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		7A14FDFE21933B720048DDBF /* mario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario3.png; sourceTree = "<group>"; };
+		7A14FDFF21933B720048DDBF /* mario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario2.png; sourceTree = "<group>"; };
+		7A14FE02219371E60048DDBF /* dmario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario3.png; sourceTree = "<group>"; };
+		7A14FE03219371E60048DDBF /* dmario1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario1.png; sourceTree = "<group>"; };
+		7A14FE04219371E70048DDBF /* dmario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario2.png; sourceTree = "<group>"; };
 		7A70EEBA2191F60C00C92C3B /* mario1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario1.png; sourceTree = "<group>"; };
 		7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggedImageView.swift; sourceTree = "<group>"; };
 		7AA0ECF82190D9B90067495C /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud1.png; sourceTree = "<group>"; };
@@ -115,6 +125,11 @@
 				7ABD528E218F67360012DC9A /* AppDelegate.swift */,
 				7ABD5290218F67360012DC9A /* ViewController.swift */,
 				7ABD5292218F67360012DC9A /* Main.storyboard */,
+				7A14FE03219371E60048DDBF /* dmario1.png */,
+				7A14FE04219371E70048DDBF /* dmario2.png */,
+				7A14FE02219371E60048DDBF /* dmario3.png */,
+				7A14FDFF21933B720048DDBF /* mario2.png */,
+				7A14FDFE21933B720048DDBF /* mario3.png */,
 				7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */,
 				7ABD52BC218F68770012DC9A /* ground.jpg */,
 				7A0C732D2190B72C00C37D91 /* background.jpg */,
@@ -248,11 +263,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABD52BD218F68770012DC9A /* ground.jpg in Resources */,
+				7A14FE0121933B720048DDBF /* mario2.png in Resources */,
 				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
 				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,
 				7ABD5299218F67370012DC9A /* LaunchScreen.storyboard in Resources */,
+				7A14FE07219371E70048DDBF /* dmario2.png in Resources */,
 				7ABD5296218F67370012DC9A /* Assets.xcassets in Resources */,
+				7A14FE06219371E70048DDBF /* dmario1.png in Resources */,
+				7A14FE05219371E70048DDBF /* dmario3.png in Resources */,
+				7A14FE0021933B720048DDBF /* mario3.png in Resources */,
 				7A70EEBB2191F60C00C92C3B /* mario1.png in Resources */,
 				7ABD5294218F67360012DC9A /* Main.storyboard in Resources */,
 			);
