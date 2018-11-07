@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,13 +20,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-P8-dO3">
                                 <rect key="frame" x="518" y="0.0" width="527" height="385"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
                                 <rect key="frame" x="0.0" y="0.0" width="519" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="height" multiplier="513:375" id="HGn-7S-K9Q"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="41k-84-rup">
+                            <imageView contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="41k-84-rup">
                                 <rect key="frame" x="0.0" y="328" width="896" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="41k-84-rup" secondAttribute="height" multiplier="850:45" id="bBG-gv-vBt"/>
@@ -36,19 +36,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k3B-02-bIf">
                                 <rect key="frame" x="1053.5" y="0.0" width="526.5" height="385"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zrP-pT-PVD">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zrP-pT-PVD">
                                 <rect key="frame" x="381" y="85" width="321" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="170" id="5Pj-oJ-dNU"/>
                                     <constraint firstAttribute="width" constant="321" id="gDP-s4-ghn"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cloud1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SUr-hG-5xa">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cloud1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SUr-hG-5xa">
                                 <rect key="frame" x="122" y="0.0" width="463" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="175" id="2RT-1S-1vM"/>
                                     <constraint firstAttribute="width" constant="500" id="Wwr-yc-ahq"/>
                                 </constraints>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mario1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gat-g6-xVL" customClass="DraggedImageView" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target">
+                                <rect key="frame" x="292" y="58" width="39" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -79,6 +83,7 @@
                         <outlet property="cloud1View" destination="SUr-hG-5xa" id="A15-6p-Lxv"/>
                         <outlet property="cloud2View" destination="zrP-pT-PVD" id="gUn-h9-O8h"/>
                         <outlet property="groundView" destination="41k-84-rup" id="Cc3-q4-Fib"/>
+                        <outlet property="marioView" destination="Gat-g6-xVL" id="chl-Nc-gKP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -91,5 +96,6 @@
         <image name="cloud1.png" width="569" height="209"/>
         <image name="cloud2.png" width="738" height="445"/>
         <image name="ground.jpg" width="1148" height="77"/>
+        <image name="mario1.png" width="50" height="90"/>
     </resources>
 </document>
