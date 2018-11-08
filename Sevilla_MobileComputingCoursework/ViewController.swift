@@ -11,6 +11,7 @@ import UIKit
 protocol subviewDelegate {
     func beginDrag()
     func endDrag()
+    func checkCollision() -> Bool
 }
 
 class ViewController: UIViewController, subviewDelegate {
@@ -122,4 +123,13 @@ class ViewController: UIViewController, subviewDelegate {
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
     }
+    
+    func checkCollision() -> Bool {
+        if (marioView.frame.intersects(groundView.frame)){
+            return true
+        }
+        return false
+        
+    }
+
 }
