@@ -17,31 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-P8-dO3">
-                                <rect key="frame" x="518" y="0.0" width="527" height="385"/>
-                            </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
-                                <rect key="frame" x="0.0" y="0.0" width="519" height="375"/>
+                                <rect key="frame" x="0.0" y="0.0" width="513" height="375"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="height" multiplier="513:375" id="HGn-7S-K9Q"/>
                                 </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="41k-84-rup">
-                                <rect key="frame" x="0.0" y="328" width="896" height="47"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="dyC-P8-dO3">
+                                <rect key="frame" x="513" y="0.0" width="513" height="375"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k3B-02-bIf">
+                                <rect key="frame" x="1053.5" y="0.0" width="526.5" height="385"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="41k-84-rup">
+                                <rect key="frame" x="0.0" y="330" width="850" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="41k-84-rup" secondAttribute="height" multiplier="850:45" id="bBG-gv-vBt"/>
                                     <constraint firstAttribute="height" constant="45" id="gPq-da-dbk"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k3B-02-bIf">
-                                <rect key="frame" x="1053.5" y="0.0" width="526.5" height="385"/>
-                            </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zrP-pT-PVD">
-                                <rect key="frame" x="381" y="85" width="321" height="170"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="5Pj-oJ-dNU"/>
-                                    <constraint firstAttribute="width" constant="321" id="gDP-s4-ghn"/>
-                                </constraints>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mario1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gat-g6-xVL" customClass="DraggedImageView" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target">
+                                <rect key="frame" x="40" y="75" width="46" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cloud1.png" translatesAutoresizingMaskIntoConstraints="NO" id="SUr-hG-5xa">
                                 <rect key="frame" x="122" y="0.0" width="463" height="175"/>
@@ -50,9 +47,12 @@
                                     <constraint firstAttribute="width" constant="500" id="Wwr-yc-ahq"/>
                                 </constraints>
                             </imageView>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mario1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gat-g6-xVL" customClass="DraggedImageView" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target">
-                                <rect key="frame" x="40" y="75" width="46" height="75"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud2.png" translatesAutoresizingMaskIntoConstraints="NO" id="zrP-pT-PVD">
+                                <rect key="frame" x="381" y="85" width="321" height="170"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="170" id="5Pj-oJ-dNU"/>
+                                    <constraint firstAttribute="width" constant="321" id="gDP-s4-ghn"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

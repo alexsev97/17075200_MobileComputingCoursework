@@ -35,6 +35,9 @@ class ViewController: UIViewController, subviewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.view.layoutIfNeeded()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.addSubview(background1View)
         self.view.addSubview(background2View)
