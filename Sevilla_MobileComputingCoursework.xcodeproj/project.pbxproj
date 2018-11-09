@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A0C3C0D2195EFC7009D3A23 /* wingkoopa5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C082195EFC7009D3A23 /* wingkoopa5.png */; };
+		7A0C3C0E2195EFC7009D3A23 /* wingkoopa2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C092195EFC7009D3A23 /* wingkoopa2.png */; };
+		7A0C3C0F2195EFC7009D3A23 /* wingkoopa1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C0A2195EFC7009D3A23 /* wingkoopa1.png */; };
+		7A0C3C102195EFC7009D3A23 /* wingkoopa3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C0B2195EFC7009D3A23 /* wingkoopa3.png */; };
+		7A0C3C112195EFC7009D3A23 /* wingkoopa4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C0C2195EFC7009D3A23 /* wingkoopa4.png */; };
 		7A0C732E2190B72C00C37D91 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C732D2190B72C00C37D91 /* background.jpg */; };
 		7A14FE0021933B720048DDBF /* mario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFE21933B720048DDBF /* mario3.png */; };
 		7A14FE0121933B720048DDBF /* mario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFF21933B720048DDBF /* mario2.png */; };
@@ -45,6 +50,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7A0C3C082195EFC7009D3A23 /* wingkoopa5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa5.png; sourceTree = "<group>"; };
+		7A0C3C092195EFC7009D3A23 /* wingkoopa2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa2.png; sourceTree = "<group>"; };
+		7A0C3C0A2195EFC7009D3A23 /* wingkoopa1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa1.png; sourceTree = "<group>"; };
+		7A0C3C0B2195EFC7009D3A23 /* wingkoopa3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa3.png; sourceTree = "<group>"; };
+		7A0C3C0C2195EFC7009D3A23 /* wingkoopa4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa4.png; sourceTree = "<group>"; };
 		7A0C732D2190B72C00C37D91 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		7A14FDFE21933B720048DDBF /* mario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario3.png; sourceTree = "<group>"; };
 		7A14FDFF21933B720048DDBF /* mario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario2.png; sourceTree = "<group>"; };
@@ -125,6 +135,11 @@
 				7ABD528E218F67360012DC9A /* AppDelegate.swift */,
 				7ABD5290218F67360012DC9A /* ViewController.swift */,
 				7ABD5292218F67360012DC9A /* Main.storyboard */,
+				7A0C3C0A2195EFC7009D3A23 /* wingkoopa1.png */,
+				7A0C3C092195EFC7009D3A23 /* wingkoopa2.png */,
+				7A0C3C0B2195EFC7009D3A23 /* wingkoopa3.png */,
+				7A0C3C0C2195EFC7009D3A23 /* wingkoopa4.png */,
+				7A0C3C082195EFC7009D3A23 /* wingkoopa5.png */,
 				7A14FE03219371E60048DDBF /* dmario1.png */,
 				7A14FE04219371E70048DDBF /* dmario2.png */,
 				7A14FE02219371E60048DDBF /* dmario3.png */,
@@ -263,10 +278,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				7ABD52BD218F68770012DC9A /* ground.jpg in Resources */,
+				7A0C3C0F2195EFC7009D3A23 /* wingkoopa1.png in Resources */,
+				7A0C3C0E2195EFC7009D3A23 /* wingkoopa2.png in Resources */,
 				7A14FE0121933B720048DDBF /* mario2.png in Resources */,
+				7A0C3C102195EFC7009D3A23 /* wingkoopa3.png in Resources */,
 				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
 				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,
+				7A0C3C112195EFC7009D3A23 /* wingkoopa4.png in Resources */,
+				7A0C3C0D2195EFC7009D3A23 /* wingkoopa5.png in Resources */,
 				7ABD5299218F67370012DC9A /* LaunchScreen.storyboard in Resources */,
 				7A14FE07219371E70048DDBF /* dmario2.png in Resources */,
 				7ABD5296218F67370012DC9A /* Assets.xcassets in Resources */,

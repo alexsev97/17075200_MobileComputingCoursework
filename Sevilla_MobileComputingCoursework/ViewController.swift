@@ -28,6 +28,10 @@ class ViewController: UIViewController, subviewDelegate {
     var imageArray: [UIImage]!
     var draggedImageArray: [UIImage]!
     
+    // Enemy character images
+    var koopaView = UIImageView(image: nil)
+    var koopaImageArray: [UIImage]!
+    
     // Behavior items
     var dynamicAnimator: UIDynamicAnimator!
     var collisionBehavior: UICollisionBehavior!
@@ -75,7 +79,13 @@ class ViewController: UIViewController, subviewDelegate {
         imageArray = [UIImage(named: "mario1.png")!,UIImage(named:"mario2.png")!,UIImage(named:"mario3.png")! ]
         draggedImageArray = [UIImage(named: "dmario1.png")!,UIImage(named:"dmario2.png")!,UIImage(named:"dmario3.png")! ]
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
-
+        
+        
+        koopaImageArray = [UIImage(named: "wingkoopa1.png")!,UIImage(named:"wingkoopa2.png")!,UIImage(named:"wingkoopa3.png")!,UIImage(named:"wingkoopa4.png")!,UIImage(named:"wingkoopa5.png")! ]
+        koopaView.image = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
+        
+        koopaView.frame = CGRect(x:200, y: 200, width: 60, height: 60)
+        self.view.addSubview(koopaView)
     }
         
     func move(_ image: UIImageView, duration: Double, translation: CGFloat) {
