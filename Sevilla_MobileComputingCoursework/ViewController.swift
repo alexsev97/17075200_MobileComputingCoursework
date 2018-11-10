@@ -52,14 +52,14 @@ class ViewController: UIViewController, subviewDelegate {
         self.view.addSubview(marioView)
         marioView.myDelegate = self
         
-        self.move(self.background1View, duration: 15, translation: -528)
-        self.move(self.background2View, duration: 15, translation: -528)
-        self.move(self.background3View, duration: 15, translation: -528)
+        self.moveInLoop(self.background1View, duration: 15, translation: -528)
+        self.moveInLoop(self.background2View, duration: 15, translation: -528)
+        self.moveInLoop(self.background3View, duration: 15, translation: -528)
         
-        self.move(self.groundView, duration: 0.3, translation: -37)
+        self.moveInLoop(self.groundView, duration: 0.3, translation: -37)
         
-        self.move(self.cloud1View, duration: 23, translation: -150)
-        self.move(self.cloud2View, duration: 23, translation: -500)
+        self.moveInLoop(self.cloud1View, duration: 23, translation: -150)
+        self.moveInLoop(self.cloud2View, duration: 23, translation: -500)
         
         
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
@@ -84,19 +84,62 @@ class ViewController: UIViewController, subviewDelegate {
         koopaImageArray = [UIImage(named: "wingkoopa1.png")!,UIImage(named:"wingkoopa2.png")!,UIImage(named:"wingkoopa3.png")!,UIImage(named:"wingkoopa4.png")!,UIImage(named:"wingkoopa5.png")! ]
         koopaView.image = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
         
-        koopaView.frame = CGRect(x:200, y: 200, width: 60, height: 60)
+        koopaView.frame = CGRect(x:UIScreen.main.bounds.width + 60, y: 200, width: 60, height: 60)
         self.view.addSubview(koopaView)
-    }
+        self.moveAndDestroy(koopaView, duration: 7)
+        generateEnemy()
         
-    func move(_ image: UIImageView, duration: Double, translation: CGFloat) {
+        let endGame = DispatchTime.now() + 20
+        DispatchQueue.main.asyncAfter(deadline: endGame) {
+            print("The game has ended")
+        }
+    }
+    
+    func moveInLoop(_ image: UIImageView, duration: Double, translation: CGFloat) {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
                 image.transform = CGAffineTransform(translationX: translation, y: 0)
             }) { (success: Bool) in
                 image.transform = CGAffineTransform.identity
-                self.move(image, duration: duration, translation: translation)
+                self.moveInLoop(image, duration: duration, translation: translation)
             }
         }
     
+    func moveAndDestroy(_ image: UIImageView, duration: Double) {
+        let translation = -UIScreen.main.bounds.width - 2 * image.frame.width
+        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
+            image.transform = CGAffineTransform(translationX: translation, y: 0)
+        }) { (success: Bool) in
+            image.transform = CGAffineTransform.identity
+           image.removeFromSuperview()
+        }
+    }
+    
+    func generateEnemy(){
+        let newEnemy = UIImageView(image: nil)
+        newEnemy.image = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
+        let yc = Int.random(in: 60 ..< 300)
+        newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
+        self.view.addSubview(newEnemy)
+        self.moveAndDestroy(newEnemy, duration: 7)
+        let enemyDelay =  DispatchTime.now() + 4
+        DispatchQueue.main.asyncAfter(deadline: enemyDelay) {
+            self.generateEnemy()
+        }
+    }
+    
+  /*  func generatePositiveRandomValue (lower: UInt32, upper: UInt32) -> UInt32 {
+        var diff: UInt32
+        diff = upper - lower
+        var rads: UInt32
+        rads = arc4random_uniform((diff + 1) * 2) - diff
+        if (rads <= 0) {
+            rads = rads - lower
+        } else {
+            rads = rads + lower - 1
+        }
+        return rads
+    }
+    */
    /* func panGesture(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .began:
