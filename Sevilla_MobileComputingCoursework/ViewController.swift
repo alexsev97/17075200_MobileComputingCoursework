@@ -29,7 +29,7 @@ class ViewController: UIViewController, subviewDelegate {
     var draggedImageArray: [UIImage]!
     
     // Enemy character images
-    var koopaView = UIImageView(image: nil)
+    //var koopaView = UIImageView(image: nil)
     var koopaImageArray: [UIImage]!
     
     // Behavior items
@@ -37,12 +37,14 @@ class ViewController: UIViewController, subviewDelegate {
     var collisionBehavior: UICollisionBehavior!
     var gravityBehavior: UIGravityBehavior!
     
+    
+    var enemyCollisionBehavior: UICollisionBehavior!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.view.layoutIfNeeded()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.view.addSubview(background1View)
         self.view.addSubview(background2View)
         self.view.addSubview(background3View)
@@ -55,38 +57,32 @@ class ViewController: UIViewController, subviewDelegate {
         self.moveInLoop(self.background1View, duration: 15, translation: -528)
         self.moveInLoop(self.background2View, duration: 15, translation: -528)
         self.moveInLoop(self.background3View, duration: 15, translation: -528)
-        
         self.moveInLoop(self.groundView, duration: 0.3, translation: -37)
-        
         self.moveInLoop(self.cloud1View, duration: 23, translation: -150)
         self.moveInLoop(self.cloud2View, duration: 23, translation: -500)
         
-        
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-        
         gravityBehavior = UIGravityBehavior(items: [marioView])
         dynamicAnimator.addBehavior(gravityBehavior)
-        gravityBehavior.magnitude = 0.3
+        gravityBehavior.magnitude = 0.4
         
         collisionBehavior = UICollisionBehavior(items: [marioView])
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
         dynamicAnimator.addBehavior(collisionBehavior)
+        collisionBehavior.addBoundary(withIdentifier: "groundBound" as NSCopying, for: UIBezierPath(rect: groundView.frame))
         
-        collisionBehavior.addBoundary(withIdentifier: "barrier" as
-            NSCopying, for: UIBezierPath(rect: groundView.frame))
+        enemyCollisionBehavior = UICollisionBehavior.init()
+        enemyCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
+       // enemyCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
+        dynamicAnimator.addBehavior(enemyCollisionBehavior)
+        enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
-       
         imageArray = [UIImage(named: "mario1.png")!,UIImage(named:"mario2.png")!,UIImage(named:"mario3.png")! ]
         draggedImageArray = [UIImage(named: "dmario1.png")!,UIImage(named:"dmario2.png")!,UIImage(named:"dmario3.png")! ]
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
         
-        
         koopaImageArray = [UIImage(named: "wingkoopa1.png")!,UIImage(named:"wingkoopa2.png")!,UIImage(named:"wingkoopa3.png")!,UIImage(named:"wingkoopa4.png")!,UIImage(named:"wingkoopa5.png")! ]
-        koopaView.image = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
         
-        koopaView.frame = CGRect(x:UIScreen.main.bounds.width + 60, y: 200, width: 60, height: 60)
-        self.view.addSubview(koopaView)
-        self.moveAndDestroy(koopaView, duration: 7)
         generateEnemy()
         
         let endGame = DispatchTime.now() + 20
@@ -105,11 +101,14 @@ class ViewController: UIViewController, subviewDelegate {
         }
     
     func moveAndDestroy(_ image: UIImageView, duration: Double) {
-        let translation = -UIScreen.main.bounds.width - 2 * image.frame.width
+        let translation = -image.frame.width
+        let newCenter = CGPoint(x: translation, y: image.center.y)
+        print(image.center)
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
-            image.transform = CGAffineTransform(translationX: translation, y: 0)
+            image.center = newCenter
         }) { (success: Bool) in
-            image.transform = CGAffineTransform.identity
+            //image.transform = CGAffineTransform.identity
+            print(image.center)
            image.removeFromSuperview()
         }
     }
@@ -120,54 +119,17 @@ class ViewController: UIViewController, subviewDelegate {
         let yc = Int.random(in: 60 ..< 300)
         newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
         self.view.addSubview(newEnemy)
-        self.moveAndDestroy(newEnemy, duration: 7)
-        let enemyDelay =  DispatchTime.now() + 4
+        let duration = Int.random(in: 4 ..< 8)
+        self.moveAndDestroy(newEnemy, duration: Double(duration))
+        enemyCollisionBehavior.addItem(newEnemy)
+        let delay = Float.random(in: 0 ..< 4)
+        let enemyDelay =  DispatchTime.now() + Double(delay)
         DispatchQueue.main.asyncAfter(deadline: enemyDelay) {
             self.generateEnemy()
         }
     }
     
-  /*  func generatePositiveRandomValue (lower: UInt32, upper: UInt32) -> UInt32 {
-        var diff: UInt32
-        diff = upper - lower
-        var rads: UInt32
-        rads = arc4random_uniform((diff + 1) * 2) - diff
-        if (rads <= 0) {
-            rads = rads - lower
-        } else {
-            rads = rads + lower - 1
-        }
-        return rads
-    }
-    */
-   /* func panGesture(gesture: UIPanGestureRecognizer) {
-        switch gesture.state {
-        case .began:
-            print("Began.")
-                if marioView.frame.contains(gesture.location(in: view)) {
-                    gravityBehavior.removeItem(marioView)
-            }
-        case .changed:
-            let translation = gesture.translation(in: marioView)
-            
-            gesture.view!.center = CGPoint(x: gesture.view!.center.x + translation.x, y: gesture.view!.center.y + translation.y)
-            
-            gesture.setTranslation(CGPoint.zero, in: self.view)
-            
-            print("\(gesture.view!.center.x)=\(gesture.view!.center.y)")
-            print("t;: \(translation)")
-        case .ended:
-                if marioView.frame.contains(gesture.location(in: view)) {
-                    gravityBehavior.addItem(marioView)
-            }
-            print("Ended.")
-        case .cancelled:
-            print("Cancelled")
-        default:
-            print("Default")
-        }
-    }
-    */
+    
     func beginDrag() {
         marioView.image = UIImage.animatedImage(with: draggedImageArray, duration: 0.4)
         gravityBehavior.removeItem(marioView)
@@ -181,11 +143,10 @@ class ViewController: UIViewController, subviewDelegate {
     }
     
     func checkCollision() -> Bool {
+        print(enemyCollisionBehavior.boundaryIdentifiers)
         if (marioView.frame.intersects(groundView.frame)){
             return true
         }
         return false
-        
     }
-
 }

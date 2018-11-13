@@ -38,6 +38,7 @@ class DraggedImageView: UIImageView {
         if (self.myDelegate?.checkCollision())!{
              self.center = aux
         }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
