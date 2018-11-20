@@ -12,6 +12,7 @@ protocol subviewDelegate {
     func beginDrag()
     func endDrag()
     func checkCollision() -> Bool
+    func updateBoundary()
 }
 
 class ViewController: UIViewController, subviewDelegate {
@@ -36,7 +37,7 @@ class ViewController: UIViewController, subviewDelegate {
     var dynamicAnimator: UIDynamicAnimator!
     var collisionBehavior: UICollisionBehavior!
     var gravityBehavior: UIGravityBehavior!
-    
+    var dynamicItemBehavior: UIDynamicItemBehavior!
     
     var enemyCollisionBehavior: UICollisionBehavior!
     
@@ -62,6 +63,10 @@ class ViewController: UIViewController, subviewDelegate {
         self.moveInLoop(self.cloud2View, duration: 23, translation: -500)
         
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
+        
+        dynamicItemBehavior = UIDynamicItemBehavior(items: [])
+        dynamicAnimator.addBehavior(dynamicItemBehavior)
+        
         gravityBehavior = UIGravityBehavior(items: [marioView])
         dynamicAnimator.addBehavior(gravityBehavior)
         gravityBehavior.magnitude = 0.4
@@ -73,9 +78,14 @@ class ViewController: UIViewController, subviewDelegate {
         
         enemyCollisionBehavior = UICollisionBehavior.init()
         enemyCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
-       // enemyCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
+        enemyCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
         dynamicAnimator.addBehavior(enemyCollisionBehavior)
         enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
+        
+        enemyCollisionBehavior.action = {
+           // print("colliding")
+            //print(self.enemyCollisionBehavior.items)
+        }
         
         imageArray = [UIImage(named: "mario1.png")!,UIImage(named:"mario2.png")!,UIImage(named:"mario3.png")! ]
         draggedImageArray = [UIImage(named: "dmario1.png")!,UIImage(named:"dmario2.png")!,UIImage(named:"dmario3.png")! ]
@@ -101,16 +111,19 @@ class ViewController: UIViewController, subviewDelegate {
         }
     
     func moveAndDestroy(_ image: UIImageView, duration: Double) {
-        let translation = -image.frame.width
+        /*let translation = -image.frame.width
         let newCenter = CGPoint(x: translation, y: image.center.y)
-        print(image.center)
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
             image.center = newCenter
+            print(image.frame)
         }) { (success: Bool) in
             //image.transform = CGAffineTransform.identity
-            print(image.center)
+            print(image.frame)
+            self.enemyCollisionBehavior.removeItem(image)
            image.removeFromSuperview()
-        }
+        }*/
+        dynamicItemBehavior.addItem(image)
+        dynamicItemBehavior.addLinearVelocity(CGPoint(x: -100, y: 0), for: image)
     }
     
     func generateEnemy(){
@@ -143,10 +156,14 @@ class ViewController: UIViewController, subviewDelegate {
     }
     
     func checkCollision() -> Bool {
-        print(enemyCollisionBehavior.boundaryIdentifiers)
         if (marioView.frame.intersects(groundView.frame)){
             return true
         }
         return false
+    }
+    
+    func updateBoundary() {
+        enemyCollisionBehavior.removeAllBoundaries()
+        enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
     }
 }
