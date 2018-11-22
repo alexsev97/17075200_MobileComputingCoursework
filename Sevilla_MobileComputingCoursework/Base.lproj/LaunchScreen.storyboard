@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,17 +12,55 @@
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconTransparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="G30-Dm-0SY">
+                                <rect key="frame" x="274" y="30" width="188" height="243"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="188" id="25m-MK-zAO"/>
+                                    <constraint firstAttribute="height" constant="243" id="Hwk-eo-afT"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marioLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="0E4-cI-phe">
+                                <rect key="frame" x="307.66666666666669" y="281" width="121" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="E7h-GP-yMU"/>
+                                    <constraint firstAttribute="width" constant="121" id="MFy-9H-hlK"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Y8K-7L-kvZ">
+                                <rect key="frame" x="331" y="347" width="74" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="86w-Ak-Kxb"/>
+                                    <constraint firstAttribute="width" constant="74" id="l8E-PD-MJb"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.85669499640000002" green="0.105570443" blue="0.1046659574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="G30-Dm-0SY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="82b-NR-vDl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y8K-7L-kvZ" secondAttribute="bottom" constant="49" id="R7h-dC-deb"/>
+                            <constraint firstItem="0E4-cI-phe" firstAttribute="top" secondItem="G30-Dm-0SY" secondAttribute="bottom" constant="8" id="TIM-bb-zMB"/>
+                            <constraint firstItem="0E4-cI-phe" firstAttribute="top" secondItem="G30-Dm-0SY" secondAttribute="bottom" constant="8" id="bKO-Xl-E41"/>
+                            <constraint firstItem="G30-Dm-0SY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="m45-Or-nMz"/>
+                            <constraint firstItem="Y8K-7L-kvZ" firstAttribute="top" secondItem="0E4-cI-phe" secondAttribute="bottom" constant="8" id="oiG-BR-gcw"/>
+                            <constraint firstItem="0E4-cI-phe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="sRF-UT-Zzi"/>
+                            <constraint firstItem="Y8K-7L-kvZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="udi-bl-Egq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="51.358695652173914" y="372.46376811594206"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconTransparent.png" width="445" height="595"/>
+        <image name="marioLogo.png" width="1280" height="599"/>
+        <image name="touchLogo.png" width="314" height="69"/>
+    </resources>
 </document>

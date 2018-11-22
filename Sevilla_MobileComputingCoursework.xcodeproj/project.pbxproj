@@ -20,6 +20,9 @@
 		7A14FE07219371E70048DDBF /* dmario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE04219371E70048DDBF /* dmario2.png */; };
 		7A70EEBB2191F60C00C92C3B /* mario1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A70EEBA2191F60C00C92C3B /* mario1.png */; };
 		7A70EEBD2191F7C500C92C3B /* DraggedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */; };
+		7A81E91821A6B39E0043FB6F /* marioLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91521A6B39D0043FB6F /* marioLogo.png */; };
+		7A81E91921A6B39E0043FB6F /* iconTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91621A6B39D0043FB6F /* iconTransparent.png */; };
+		7A81E91A21A6B39E0043FB6F /* touchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91721A6B39D0043FB6F /* touchLogo.png */; };
 		7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECF82190D9B90067495C /* cloud1.png */; };
 		7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECFA2190DA1A0067495C /* cloud2.png */; };
 		7ABD528F218F67360012DC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD528E218F67360012DC9A /* AppDelegate.swift */; };
@@ -30,6 +33,7 @@
 		7ABD52A4218F67380012DC9A /* Sevilla_MobileComputingCourseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD52A3218F67380012DC9A /* Sevilla_MobileComputingCourseworkTests.swift */; };
 		7ABD52AF218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD52AE218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift */; };
 		7ABD52BD218F68770012DC9A /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7ABD52BC218F68770012DC9A /* ground.jpg */; };
+		7AFCD0A421A5F00300791C89 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AFCD0A321A5F00200791C89 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +67,9 @@
 		7A14FE04219371E70048DDBF /* dmario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario2.png; sourceTree = "<group>"; };
 		7A70EEBA2191F60C00C92C3B /* mario1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario1.png; sourceTree = "<group>"; };
 		7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggedImageView.swift; sourceTree = "<group>"; };
+		7A81E91521A6B39D0043FB6F /* marioLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marioLogo.png; sourceTree = "<group>"; };
+		7A81E91621A6B39D0043FB6F /* iconTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconTransparent.png; sourceTree = "<group>"; };
+		7A81E91721A6B39D0043FB6F /* touchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchLogo.png; sourceTree = "<group>"; };
 		7AA0ECF82190D9B90067495C /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud1.png; sourceTree = "<group>"; };
 		7AA0ECFA2190DA1A0067495C /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud2.png; sourceTree = "<group>"; };
 		7ABD528B218F67360012DC9A /* Sevilla_MobileComputingCoursework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sevilla_MobileComputingCoursework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +86,7 @@
 		7ABD52AE218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sevilla_MobileComputingCourseworkUITests.swift; sourceTree = "<group>"; };
 		7ABD52B0218F67380012DC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABD52BC218F68770012DC9A /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpg; sourceTree = "<group>"; };
+		7AFCD0A321A5F00200791C89 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,10 @@
 		7ABD528D218F67360012DC9A /* Sevilla_MobileComputingCoursework */ = {
 			isa = PBXGroup;
 			children = (
+				7A81E91621A6B39D0043FB6F /* iconTransparent.png */,
+				7A81E91521A6B39D0043FB6F /* marioLogo.png */,
+				7A81E91721A6B39D0043FB6F /* touchLogo.png */,
+				7AFCD0A321A5F00200791C89 /* icon.png */,
 				7A70EEBA2191F60C00C92C3B /* mario1.png */,
 				7AA0ECFA2190DA1A0067495C /* cloud2.png */,
 				7AA0ECF82190D9B90067495C /* cloud1.png */,
@@ -285,10 +297,14 @@
 				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
 				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,
+				7A81E91A21A6B39E0043FB6F /* touchLogo.png in Resources */,
 				7A0C3C112195EFC7009D3A23 /* wingkoopa4.png in Resources */,
 				7A0C3C0D2195EFC7009D3A23 /* wingkoopa5.png in Resources */,
+				7A81E91921A6B39E0043FB6F /* iconTransparent.png in Resources */,
 				7ABD5299218F67370012DC9A /* LaunchScreen.storyboard in Resources */,
 				7A14FE07219371E70048DDBF /* dmario2.png in Resources */,
+				7A81E91821A6B39E0043FB6F /* marioLogo.png in Resources */,
+				7AFCD0A421A5F00300791C89 /* icon.png in Resources */,
 				7ABD5296218F67370012DC9A /* Assets.xcassets in Resources */,
 				7A14FE06219371E70048DDBF /* dmario1.png in Resources */,
 				7A14FE05219371E70048DDBF /* dmario3.png in Resources */,
