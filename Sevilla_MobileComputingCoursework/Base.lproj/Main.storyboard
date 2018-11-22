@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="05V-qU-qvR">
@@ -54,11 +54,21 @@
                                     <constraint firstAttribute="width" constant="321" id="gDP-s4-ghn"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Score: 0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KlI-3a-mqv">
+                                <rect key="frame" x="20" y="20" width="170" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="170" id="sOe-cg-NcA"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="05V-qU-qvR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2eA-fo-u9D"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="height" secondItem="05V-qU-qvR" secondAttribute="height" id="5os-Ho-0Jb"/>
+                            <constraint firstItem="KlI-3a-mqv" firstAttribute="top" secondItem="RLX-he-AaW" secondAttribute="top" constant="20" id="61r-kW-UoD"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="leading" secondItem="05V-qU-qvR" secondAttribute="trailing" id="6bk-i1-AI1"/>
                             <constraint firstItem="SUr-hG-5xa" firstAttribute="top" secondItem="RLX-he-AaW" secondAttribute="top" id="6ld-Ks-0dh"/>
                             <constraint firstItem="SUr-hG-5xa" firstAttribute="leading" secondItem="RLX-he-AaW" secondAttribute="leading" constant="150" id="8NL-Zu-h80"/>
@@ -69,6 +79,7 @@
                             <constraint firstItem="k3B-02-bIf" firstAttribute="height" secondItem="dyC-P8-dO3" secondAttribute="height" id="as9-xW-rdh"/>
                             <constraint firstItem="dyC-P8-dO3" firstAttribute="width" secondItem="05V-qU-qvR" secondAttribute="width" id="cjZ-ae-voW"/>
                             <constraint firstItem="k3B-02-bIf" firstAttribute="leading" secondItem="dyC-P8-dO3" secondAttribute="trailing" id="dDu-YA-Bw1"/>
+                            <constraint firstItem="KlI-3a-mqv" firstAttribute="leading" secondItem="RLX-he-AaW" secondAttribute="leading" constant="20" id="dy9-VN-DGl"/>
                             <constraint firstItem="k3B-02-bIf" firstAttribute="width" secondItem="dyC-P8-dO3" secondAttribute="width" id="gow-by-16v"/>
                             <constraint firstItem="05V-qU-qvR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="o1M-hq-KOo"/>
                             <constraint firstItem="41k-84-rup" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="vie-rc-4ph"/>
@@ -84,6 +95,7 @@
                         <outlet property="cloud2View" destination="zrP-pT-PVD" id="gUn-h9-O8h"/>
                         <outlet property="groundView" destination="41k-84-rup" id="Cc3-q4-Fib"/>
                         <outlet property="marioView" destination="Gat-g6-xVL" id="chl-Nc-gKP"/>
+                        <outlet property="scoreLabel" destination="KlI-3a-mqv" id="DY1-Pc-50r"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

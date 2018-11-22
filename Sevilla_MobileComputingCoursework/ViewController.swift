@@ -28,10 +28,16 @@ class ViewController: UIViewController, subviewDelegate {
     @IBOutlet weak var marioView: DraggedImageView!
     var imageArray: [UIImage]!
     var draggedImageArray: [UIImage]!
+    var dragging = false
     
     // Enemy character images
-    //var koopaView = UIImageView(image: nil)
+    var koopaImage: UIImage!
     var koopaImageArray: [UIImage]!
+    var enemyArray: [UIImageView]!
+    
+    // Text label containing the score
+    @IBOutlet weak var scoreLabel: UITextField!
+    var score = 0
     
     // Behavior items
     var dynamicAnimator: UIDynamicAnimator!
@@ -54,6 +60,7 @@ class ViewController: UIViewController, subviewDelegate {
         self.view.addSubview(cloud2View)
         self.view.addSubview(marioView)
         marioView.myDelegate = self
+        self.view.addSubview(scoreLabel)
         
         self.moveInLoop(self.background1View, duration: 15, translation: -528)
         self.moveInLoop(self.background2View, duration: 15, translation: -528)
@@ -83,8 +90,25 @@ class ViewController: UIViewController, subviewDelegate {
         enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
         enemyCollisionBehavior.action = {
-           // print("colliding")
-            //print(self.enemyCollisionBehavior.items)
+            for item in self.enemyArray{
+                if(item.frame.intersects(self.marioView.frame)) {
+                    self.score -= 5
+                    self.updateScore()
+                    self.dynamicItemBehavior.removeItem(item)
+                    self.enemyCollisionBehavior.removeItem(item)
+                    item.removeFromSuperview()
+                    item.frame = CGRect.zero
+                    self.marioView.image = UIImage(named: "hitMario.png")
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                        if (self.dragging){
+                            self.marioView.image = UIImage.animatedImage(with: self.draggedImageArray, duration: 0.4)
+                        }
+                        else{
+                            self.marioView.image = UIImage.animatedImage(with: self.imageArray, duration: 0.4)
+                        }
+                    }
+                }
+            }
         }
         
         imageArray = [UIImage(named: "mario1.png")!,UIImage(named:"mario2.png")!,UIImage(named:"mario3.png")! ]
@@ -93,6 +117,9 @@ class ViewController: UIViewController, subviewDelegate {
         
         koopaImageArray = [UIImage(named: "wingkoopa1.png")!,UIImage(named:"wingkoopa2.png")!,UIImage(named:"wingkoopa3.png")!,UIImage(named:"wingkoopa4.png")!,UIImage(named:"wingkoopa5.png")! ]
         
+        koopaImage = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
+        enemyArray = Array<UIImageView>()
+
         generateEnemy()
         
         let endGame = DispatchTime.now() + 20
@@ -110,7 +137,7 @@ class ViewController: UIViewController, subviewDelegate {
             }
         }
     
-    func moveAndDestroy(_ image: UIImageView, duration: Double) {
+    func moveAndDestroy(_ image: UIImageView, speed: Int) {
         /*let translation = -image.frame.width
         let newCenter = CGPoint(x: translation, y: image.center.y)
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
@@ -123,19 +150,20 @@ class ViewController: UIViewController, subviewDelegate {
            image.removeFromSuperview()
         }*/
         dynamicItemBehavior.addItem(image)
-        dynamicItemBehavior.addLinearVelocity(CGPoint(x: -100, y: 0), for: image)
+        dynamicItemBehavior.addLinearVelocity(CGPoint(x: speed, y: 0), for: image)
     }
     
     func generateEnemy(){
         let newEnemy = UIImageView(image: nil)
-        newEnemy.image = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
+        newEnemy.image = koopaImage
         let yc = Int.random(in: 60 ..< 300)
         newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
+        enemyArray.append(newEnemy)
         self.view.addSubview(newEnemy)
-        let duration = Int.random(in: 4 ..< 8)
-        self.moveAndDestroy(newEnemy, duration: Double(duration))
+        let speed = Int.random(in: -200 ..< -100)
+        self.moveAndDestroy(newEnemy, speed: speed)
         enemyCollisionBehavior.addItem(newEnemy)
-        let delay = Float.random(in: 0 ..< 4)
+        let delay = Float.random(in: 0.5 ..< 4.5)
         let enemyDelay =  DispatchTime.now() + Double(delay)
         DispatchQueue.main.asyncAfter(deadline: enemyDelay) {
             self.generateEnemy()
@@ -144,12 +172,14 @@ class ViewController: UIViewController, subviewDelegate {
     
     
     func beginDrag() {
+        self.dragging = true
         marioView.image = UIImage.animatedImage(with: draggedImageArray, duration: 0.4)
         gravityBehavior.removeItem(marioView)
         collisionBehavior.removeItem(marioView)
     }
     
     func endDrag() {
+        self.dragging = false
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
@@ -165,5 +195,9 @@ class ViewController: UIViewController, subviewDelegate {
     func updateBoundary() {
         enemyCollisionBehavior.removeAllBoundaries()
         enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
+    }
+    
+    func updateScore(){
+        scoreLabel.text = "Score: " + String(score)
     }
 }
