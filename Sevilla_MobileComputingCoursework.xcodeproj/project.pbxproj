@@ -18,6 +18,11 @@
 		7A14FE05219371E70048DDBF /* dmario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE02219371E60048DDBF /* dmario3.png */; };
 		7A14FE06219371E70048DDBF /* dmario1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE03219371E60048DDBF /* dmario1.png */; };
 		7A14FE07219371E70048DDBF /* dmario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE04219371E70048DDBF /* dmario2.png */; };
+		7A3A2B3921AD607E00D9235F /* shell2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3A2B3521AD607D00D9235F /* shell2.png */; };
+		7A3A2B3A21AD607E00D9235F /* shell4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3A2B3621AD607E00D9235F /* shell4.png */; };
+		7A3A2B3B21AD607E00D9235F /* shell3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3A2B3721AD607E00D9235F /* shell3.png */; };
+		7A3A2B3C21AD607E00D9235F /* shell1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A3A2B3821AD607E00D9235F /* shell1.png */; };
+		7A3A2B3E21AD64E800D9235F /* smw_stomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A3A2B3D21AD64E800D9235F /* smw_stomp.wav */; };
 		7A70EEBB2191F60C00C92C3B /* mario1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A70EEBA2191F60C00C92C3B /* mario1.png */; };
 		7A70EEBD2191F7C500C92C3B /* DraggedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */; };
 		7A81E91821A6B39E0043FB6F /* marioLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91521A6B39D0043FB6F /* marioLogo.png */; };
@@ -66,6 +71,11 @@
 		7A14FE02219371E60048DDBF /* dmario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario3.png; sourceTree = "<group>"; };
 		7A14FE03219371E60048DDBF /* dmario1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario1.png; sourceTree = "<group>"; };
 		7A14FE04219371E70048DDBF /* dmario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario2.png; sourceTree = "<group>"; };
+		7A3A2B3521AD607D00D9235F /* shell2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell2.png; sourceTree = "<group>"; };
+		7A3A2B3621AD607E00D9235F /* shell4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell4.png; sourceTree = "<group>"; };
+		7A3A2B3721AD607E00D9235F /* shell3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell3.png; sourceTree = "<group>"; };
+		7A3A2B3821AD607E00D9235F /* shell1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shell1.png; sourceTree = "<group>"; };
+		7A3A2B3D21AD64E800D9235F /* smw_stomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smw_stomp.wav; sourceTree = "<group>"; };
 		7A70EEBA2191F60C00C92C3B /* mario1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario1.png; sourceTree = "<group>"; };
 		7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggedImageView.swift; sourceTree = "<group>"; };
 		7A81E91521A6B39D0043FB6F /* marioLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marioLogo.png; sourceTree = "<group>"; };
@@ -150,6 +160,11 @@
 				7ABD528E218F67360012DC9A /* AppDelegate.swift */,
 				7ABD5290218F67360012DC9A /* ViewController.swift */,
 				7ABD5292218F67360012DC9A /* Main.storyboard */,
+				7A3A2B3D21AD64E800D9235F /* smw_stomp.wav */,
+				7A3A2B3821AD607E00D9235F /* shell1.png */,
+				7A3A2B3521AD607D00D9235F /* shell2.png */,
+				7A3A2B3721AD607E00D9235F /* shell3.png */,
+				7A3A2B3621AD607E00D9235F /* shell4.png */,
 				7A0C3C0A2195EFC7009D3A23 /* wingkoopa1.png */,
 				7A0C3C092195EFC7009D3A23 /* wingkoopa2.png */,
 				7A0C3C0B2195EFC7009D3A23 /* wingkoopa3.png */,
@@ -297,10 +312,12 @@
 				7A0C3C0E2195EFC7009D3A23 /* wingkoopa2.png in Resources */,
 				7A14FE0121933B720048DDBF /* mario2.png in Resources */,
 				7A0C3C102195EFC7009D3A23 /* wingkoopa3.png in Resources */,
+				7A3A2B3A21AD607E00D9235F /* shell4.png in Resources */,
 				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
 				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,
 				7A81E91A21A6B39E0043FB6F /* touchLogo.png in Resources */,
+				7A3A2B3B21AD607E00D9235F /* shell3.png in Resources */,
 				7A0C3C112195EFC7009D3A23 /* wingkoopa4.png in Resources */,
 				7A0C3C0D2195EFC7009D3A23 /* wingkoopa5.png in Resources */,
 				7A81E91921A6B39E0043FB6F /* iconTransparent.png in Resources */,
@@ -314,7 +331,10 @@
 				7ADB120C21A710A500C5B079 /* hitMario.png in Resources */,
 				7A14FE0021933B720048DDBF /* mario3.png in Resources */,
 				7A70EEBB2191F60C00C92C3B /* mario1.png in Resources */,
+				7A3A2B3C21AD607E00D9235F /* shell1.png in Resources */,
 				7ABD5294218F67360012DC9A /* Main.storyboard in Resources */,
+				7A3A2B3E21AD64E800D9235F /* smw_stomp.wav in Resources */,
+				7A3A2B3921AD607E00D9235F /* shell2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

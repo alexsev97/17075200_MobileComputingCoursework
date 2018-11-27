@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 protocol subviewDelegate {
     func beginDrag()
@@ -34,6 +35,10 @@ class ViewController: UIViewController, subviewDelegate {
     var koopaImage: UIImage!
     var koopaImageArray: [UIImage]!
     var enemyArray: [UIImageView]!
+    var shellImageArray: [UIImage]!
+    
+    // Sound effects
+    var kickSoundEffect: AVAudioPlayer?
     
     // Text label containing the score
     @IBOutlet weak var scoreLabel: UITextField!
@@ -96,6 +101,7 @@ class ViewController: UIViewController, subviewDelegate {
                     self.updateScore()
                     self.dynamicItemBehavior.removeItem(item)
                     self.enemyCollisionBehavior.removeItem(item)
+                    let oldFrame = item.frame
                     item.removeFromSuperview()
                     item.frame = CGRect.zero
                     self.marioView.image = UIImage(named: "hitMario.png")
@@ -107,6 +113,23 @@ class ViewController: UIViewController, subviewDelegate {
                             self.marioView.image = UIImage.animatedImage(with: self.imageArray, duration: 0.4)
                         }
                     }
+                    let newShell = UIImageView(image: nil)
+                    newShell.image = UIImage.animatedImage(with: self.shellImageArray, duration: 0.6)
+                    newShell.frame = oldFrame
+                    newShell.frame.size.width = 35
+                    newShell.frame.size.height = 35
+                    self.view.addSubview(newShell)
+                    self.gravityBehavior.addItem(newShell)
+                    // Play sound
+                    let kickPath =  Bundle.main.path(forResource:"smw_stomp.wav", ofType: nil)!
+                    let kickUrl = URL(fileURLWithPath: kickPath)
+                    do{
+                        self.kickSoundEffect = try AVAudioPlayer(contentsOf: kickUrl)
+                        self.kickSoundEffect?.play()
+                    }
+                    catch{
+                       print("Couldn't load audio file")
+                    }
                 }
             }
         }
@@ -116,6 +139,7 @@ class ViewController: UIViewController, subviewDelegate {
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
         
         koopaImageArray = [UIImage(named: "wingkoopa1.png")!,UIImage(named:"wingkoopa2.png")!,UIImage(named:"wingkoopa3.png")!,UIImage(named:"wingkoopa4.png")!,UIImage(named:"wingkoopa5.png")! ]
+        shellImageArray = [UIImage(named: "shell1.png")!,UIImage(named:"shell2.png")!,UIImage(named:"shell3.png")!,UIImage(named:"shell4.png")!]
         
         koopaImage = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
         enemyArray = Array<UIImageView>()
