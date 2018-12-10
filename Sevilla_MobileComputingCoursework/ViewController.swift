@@ -39,6 +39,8 @@ class ViewController: UIViewController, subviewDelegate {
     
     // Sound effects
     var kickSoundEffect: AVAudioPlayer?
+    var kickPath: String?
+    var kickUrl: URL?
     
     // Text label containing the score
     @IBOutlet weak var scoreLabel: UITextField!
@@ -94,6 +96,11 @@ class ViewController: UIViewController, subviewDelegate {
         dynamicAnimator.addBehavior(enemyCollisionBehavior)
         enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
+        
+        // Assign sounds
+        kickPath = Bundle.main.path(forResource:"smw_stomp.wav", ofType: nil)!
+        kickUrl = URL(fileURLWithPath: kickPath!)
+        
         enemyCollisionBehavior.action = {
             for item in self.enemyArray{
                 if(item.frame.intersects(self.marioView.frame)) {
@@ -121,10 +128,9 @@ class ViewController: UIViewController, subviewDelegate {
                     self.view.addSubview(newShell)
                     self.gravityBehavior.addItem(newShell)
                     // Play sound
-                    let kickPath =  Bundle.main.path(forResource:"smw_stomp.wav", ofType: nil)!
-                    let kickUrl = URL(fileURLWithPath: kickPath)
                     do{
-                        self.kickSoundEffect = try AVAudioPlayer(contentsOf: kickUrl)
+                        print("sound")
+                        self.kickSoundEffect = try AVAudioPlayer(contentsOf: self.kickUrl!)
                         self.kickSoundEffect?.play()
                     }
                     catch{
