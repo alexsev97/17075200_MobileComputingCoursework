@@ -37,6 +37,10 @@ class ViewController: UIViewController, subviewDelegate {
     var enemyArray: [UIImageView]!
     var shellImageArray: [UIImage]!
     
+    // Coin image array
+    var coinImageArray: [UIImage]!
+    var coinImage: UIImage!
+    
     // Sound effects
     var kickSoundEffect: AVAudioPlayer?
     var kickPath: String?
@@ -104,6 +108,7 @@ class ViewController: UIViewController, subviewDelegate {
         enemyCollisionBehavior.action = {
             for item in self.enemyArray{
                 if(item.frame.intersects(self.marioView.frame)) {
+                    print(self.enemyArray.count)
                     self.score -= 5
                     self.updateScore()
                     self.dynamicItemBehavior.removeItem(item)
@@ -140,21 +145,29 @@ class ViewController: UIViewController, subviewDelegate {
             }
         }
         
+        // Mario animation
         imageArray = [UIImage(named: "mario1.png")!,UIImage(named:"mario2.png")!,UIImage(named:"mario3.png")! ]
         draggedImageArray = [UIImage(named: "dmario1.png")!,UIImage(named:"dmario2.png")!,UIImage(named:"dmario3.png")! ]
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
         
+        // Koopa enemy animation
         koopaImageArray = [UIImage(named: "wingkoopa1.png")!,UIImage(named:"wingkoopa2.png")!,UIImage(named:"wingkoopa3.png")!,UIImage(named:"wingkoopa4.png")!,UIImage(named:"wingkoopa5.png")! ]
         shellImageArray = [UIImage(named: "shell1.png")!,UIImage(named:"shell2.png")!,UIImage(named:"shell3.png")!,UIImage(named:"shell4.png")!]
         
         koopaImage = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
         enemyArray = Array<UIImageView>()
-
+        
+        // Call function to start random generation of enemies
         generateEnemy()
         
-        let endGame = DispatchTime.now() + 20
+        // Coin animation
+        coinImageArray = [UIImage(named: "coin1.png")!,UIImage(named:"coin2.png")!,UIImage(named:"coin3.png")!,UIImage(named:"coin4.png")!,UIImage(named:"coin5.png")!,UIImage(named:"coin6.png")!,UIImage(named:"coin7.png")!,UIImage(named:"coin8.png")!,UIImage(named:"coin9.png")! ]
+        coinImage = UIImage.animatedImage(with: coinImageArray, duration: 0.5)
+        
+        let endGame = DispatchTime.now() + 10 //Write 20
         DispatchQueue.main.asyncAfter(deadline: endGame) {
             print("The game has ended")
+             self.performSegue(withIdentifier: "timerSegue", sender: self)
         }
     }
     
@@ -230,4 +243,34 @@ class ViewController: UIViewController, subviewDelegate {
     func updateScore(){
         scoreLabel.text = "Score: " + String(score)
     }
+    
+   /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "ShowDefinition") {
+            if let destinationViewController = segue.destinationViewController as? EnglishViewController {
+                if let definition = sender as? String {
+                    if definition == "Abstraction" {
+                        destinationViewController.titleMsg = "Abstraction"
+                        destinationViewController.definitionMsg = "Abstraction Definition"
+                    } else if definition == "Binary System" {
+                        destinationViewController.titleMsg = "Binary System"
+                        destinationViewController.definitionMsg = "Binary System Definition"
+                    }
+                }
+            }
+        }
+    }*/
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let endViewController = segue.destination as! EndViewController
+        endViewController.score = self.scoreLabel.text
+    }
+    
+   /* override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // Remove self from navigation hierarchy
+        guard let viewControllers = navigationController?.viewControllers,
+            let index = viewControllers.firstIndex(of: self) else { return }
+        navigationController?.viewControllers.remove(at: index)
+        //HACER ALGO PARA QUE NO SE QUEDEN LAS VIEWS ALMACENADAS O LO QUE SEA QUE PASE
+    }*/
 }
