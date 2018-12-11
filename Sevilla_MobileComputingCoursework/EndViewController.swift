@@ -15,6 +15,7 @@ class EndViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBAction func replayButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func scoresButton(_ sender: Any) {

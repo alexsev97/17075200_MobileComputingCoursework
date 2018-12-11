@@ -31,6 +31,9 @@ class ViewController: UIViewController, subviewDelegate {
     var draggedImageArray: [UIImage]!
     var dragging = false
     
+    // Stop game
+    var stopGame = false
+    
     // Enemy character images
     var koopaImage: UIImage!
     var koopaImageArray: [UIImage]!
@@ -40,11 +43,21 @@ class ViewController: UIViewController, subviewDelegate {
     // Coin image array
     var coinImageArray: [UIImage]!
     var coinImage: UIImage!
+    var coinArray: [UIImageView]!
     
     // Sound effects
     var kickSoundEffect: AVAudioPlayer?
     var kickPath: String?
     var kickUrl: URL?
+    
+    var coinSoundEffect: AVAudioPlayer?
+    var coinPath: String?
+    var coinUrl: URL?
+    
+    var levelMusic: AVAudioPlayer?
+    var levelMusicPath: String?
+    var levelMusicUrl: URL?
+    
     
     // Text label containing the score
     @IBOutlet weak var scoreLabel: UITextField!
@@ -57,6 +70,7 @@ class ViewController: UIViewController, subviewDelegate {
     var dynamicItemBehavior: UIDynamicItemBehavior!
     
     var enemyCollisionBehavior: UICollisionBehavior!
+    var coinCollisionBehavior: UICollisionBehavior!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +86,16 @@ class ViewController: UIViewController, subviewDelegate {
         self.view.addSubview(marioView)
         marioView.myDelegate = self
         self.view.addSubview(scoreLabel)
+        
+        // Assign sounds
+        kickPath = Bundle.main.path(forResource:"smw_stomp.wav", ofType: nil)!
+        kickUrl = URL(fileURLWithPath: kickPath!)
+        
+        coinPath = Bundle.main.path(forResource:"sm64_coin.wav", ofType: nil)!
+        coinUrl = URL(fileURLWithPath: coinPath!)
+        
+        levelMusicPath = Bundle.main.path(forResource:"levelMusic.mp3", ofType: nil)!
+        levelMusicUrl = URL(fileURLWithPath: levelMusicPath!)
         
         self.moveInLoop(self.background1View, duration: 15, translation: -528)
         self.moveInLoop(self.background2View, duration: 15, translation: -528)
@@ -100,31 +124,32 @@ class ViewController: UIViewController, subviewDelegate {
         dynamicAnimator.addBehavior(enemyCollisionBehavior)
         enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
-        
-        // Assign sounds
-        kickPath = Bundle.main.path(forResource:"smw_stomp.wav", ofType: nil)!
-        kickUrl = URL(fileURLWithPath: kickPath!)
-        
         enemyCollisionBehavior.action = {
             for item in self.enemyArray{
                 if(item.frame.intersects(self.marioView.frame)) {
                     print(self.enemyArray.count)
                     self.score -= 5
-                    self.updateScore()
+                    self.updateScore() // Update score text label
                     self.dynamicItemBehavior.removeItem(item)
                     self.enemyCollisionBehavior.removeItem(item)
                     let oldFrame = item.frame
                     item.removeFromSuperview()
                     item.frame = CGRect.zero
+                    
+                    // Change Mario image when he is hit
                     self.marioView.image = UIImage(named: "hitMario.png")
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
+                        // Go back to dragging image
                         if (self.dragging){
                             self.marioView.image = UIImage.animatedImage(with: self.draggedImageArray, duration: 0.4)
                         }
+                            // Go back to normal image
                         else{
                             self.marioView.image = UIImage.animatedImage(with: self.imageArray, duration: 0.4)
                         }
                     }
+                    
+                    // Create new shell when enemy hit
                     let newShell = UIImageView(image: nil)
                     newShell.image = UIImage.animatedImage(with: self.shellImageArray, duration: 0.6)
                     newShell.frame = oldFrame
@@ -132,6 +157,7 @@ class ViewController: UIViewController, subviewDelegate {
                     newShell.frame.size.height = 35
                     self.view.addSubview(newShell)
                     self.gravityBehavior.addItem(newShell)
+                    
                     // Play sound
                     do{
                         print("sound")
@@ -139,8 +165,36 @@ class ViewController: UIViewController, subviewDelegate {
                         self.kickSoundEffect?.play()
                     }
                     catch{
-                       print("Couldn't load audio file")
+                        print("Couldn't load audio file")
                     }
+                }
+            }
+        }
+        
+        coinCollisionBehavior = UICollisionBehavior.init()
+        coinCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
+        coinCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
+        dynamicAnimator.addBehavior(coinCollisionBehavior)
+        coinCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
+        
+        coinCollisionBehavior.action = {
+            for item in self.coinArray{
+                if(item.frame.intersects(self.marioView.frame)) {
+                    self.score += 15
+                    self.updateScore() // Update score text label
+                    self.dynamicItemBehavior.removeItem(item)
+                    self.coinCollisionBehavior.removeItem(item)
+                    item.removeFromSuperview()
+                    item.frame = CGRect.zero
+                    // Play sound
+                    do{
+                        self.coinSoundEffect = try AVAudioPlayer(contentsOf: self.coinUrl!)
+                        self.coinSoundEffect?.play()
+                    }
+                    catch{
+                        print("Couldn't load audio file")
+                    }
+                    
                 }
             }
         }
@@ -157,20 +211,41 @@ class ViewController: UIViewController, subviewDelegate {
         koopaImage = UIImage.animatedImage(with: koopaImageArray, duration: 0.6)
         enemyArray = Array<UIImageView>()
         
-        // Call function to start random generation of enemies
-        generateEnemy()
-        
         // Coin animation
         coinImageArray = [UIImage(named: "coin1.png")!,UIImage(named:"coin2.png")!,UIImage(named:"coin3.png")!,UIImage(named:"coin4.png")!,UIImage(named:"coin5.png")!,UIImage(named:"coin6.png")!,UIImage(named:"coin7.png")!,UIImage(named:"coin8.png")!,UIImage(named:"coin9.png")! ]
         coinImage = UIImage.animatedImage(with: coinImageArray, duration: 0.5)
+        coinArray = Array<UIImageView>()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         
-        let endGame = DispatchTime.now() + 10 //Write 20
+        // Call function to start random generation of enemies and coins
+        stopGame = false
+        generateEnemy()
+        generateCoin()
+        
+        // Update actual score
+        self.updateScore()
+        
+        do{
+            self.levelMusic = try AVAudioPlayer(contentsOf: self.levelMusicUrl!)
+            self.levelMusic?.play()
+            self.levelMusic?.volume = 0.5
+        }
+        catch{
+            print("Couldn't load audio file")
+        }
+        
+        // Timer for game end
+        let endGame = DispatchTime.now() + 20.5
         DispatchQueue.main.asyncAfter(deadline: endGame) {
             print("The game has ended")
-             self.performSegue(withIdentifier: "timerSegue", sender: self)
+            self.performSegue(withIdentifier: "timerSegue", sender: self)
         }
     }
     
+    // Function to move in loop background and floor
     func moveInLoop(_ image: UIImageView, duration: Double, translation: CGFloat) {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
                 image.transform = CGAffineTransform(translationX: translation, y: 0)
@@ -181,39 +256,54 @@ class ViewController: UIViewController, subviewDelegate {
         }
     
     func moveAndDestroy(_ image: UIImageView, speed: Int) {
-        /*let translation = -image.frame.width
-        let newCenter = CGPoint(x: translation, y: image.center.y)
-        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: {
-            image.center = newCenter
-            print(image.frame)
-        }) { (success: Bool) in
-            //image.transform = CGAffineTransform.identity
-            print(image.frame)
-            self.enemyCollisionBehavior.removeItem(image)
-           image.removeFromSuperview()
-        }*/
         dynamicItemBehavior.addItem(image)
         dynamicItemBehavior.addLinearVelocity(CGPoint(x: speed, y: 0), for: image)
     }
     
+    // Function to generate random enemies
     func generateEnemy(){
-        let newEnemy = UIImageView(image: nil)
-        newEnemy.image = koopaImage
-        let yc = Int.random(in: 60 ..< 300)
-        newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
-        enemyArray.append(newEnemy)
-        self.view.addSubview(newEnemy)
-        let speed = Int.random(in: -200 ..< -100)
-        self.moveAndDestroy(newEnemy, speed: speed)
-        enemyCollisionBehavior.addItem(newEnemy)
-        let delay = Float.random(in: 0.5 ..< 4.5)
-        let enemyDelay =  DispatchTime.now() + Double(delay)
-        DispatchQueue.main.asyncAfter(deadline: enemyDelay) {
-            self.generateEnemy()
+        if(!stopGame){
+            let newEnemy = UIImageView(image: nil)
+            newEnemy.image = koopaImage
+            let yc = Int.random(in: 60 ..< 300)
+            newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
+            enemyArray.append(newEnemy)
+            self.view.addSubview(newEnemy)
+            let speed = Int.random(in: -200 ..< -100)
+            self.moveAndDestroy(newEnemy, speed: speed)
+            enemyCollisionBehavior.addItem(newEnemy)
+            
+            // We call this function again after a random delay
+            let delay = Float.random(in: 0.7 ..< 4.5)
+            let enemyDelay =  DispatchTime.now() + Double(delay)
+            DispatchQueue.main.asyncAfter(deadline: enemyDelay) {
+                self.generateEnemy()
+            }
         }
     }
     
+    func generateCoin(){
+        if(!stopGame){
+            let newCoin = UIImageView(image: nil)
+            newCoin.image = coinImage
+            let yc = Int.random(in: 60 ..< 250)
+            newCoin.frame = CGRect(x:Int(UIScreen.main.bounds.width + newCoin.frame.width), y: yc, width: 30, height: 30)
+            coinArray.append(newCoin)
+            self.view.addSubview(newCoin)
+            let speed = Int.random(in: -150 ..< -50)
+            self.moveAndDestroy(newCoin, speed: speed)
+            coinCollisionBehavior.addItem(newCoin)
+            
+            // We call this function again after a random delay
+            let delay = Float.random(in: 0.9 ..< 4.3)
+            let coinDelay =  DispatchTime.now() + Double(delay)
+            DispatchQueue.main.asyncAfter(deadline: coinDelay) {
+                self.generateCoin()
+            }
+        }
+    }
     
+    // Function executed when the user starts dragging Mario
     func beginDrag() {
         self.dragging = true
         marioView.image = UIImage.animatedImage(with: draggedImageArray, duration: 0.4)
@@ -221,6 +311,7 @@ class ViewController: UIViewController, subviewDelegate {
         collisionBehavior.removeItem(marioView)
     }
     
+    // Function executed when the user stops dragging Mario
     func endDrag() {
         self.dragging = false
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
@@ -228,6 +319,7 @@ class ViewController: UIViewController, subviewDelegate {
         collisionBehavior.addItem(marioView)
     }
     
+    // Check for collision from Mario with the ground
     func checkCollision() -> Bool {
         if (marioView.frame.intersects(groundView.frame)){
             return true
@@ -235,42 +327,41 @@ class ViewController: UIViewController, subviewDelegate {
         return false
     }
     
+    // Update Mario boundary as he is being dragged
     func updateBoundary() {
         enemyCollisionBehavior.removeAllBoundaries()
         enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
     }
     
+    // Update score text label
     func updateScore(){
         scoreLabel.text = "Score: " + String(score)
     }
     
-   /* override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "ShowDefinition") {
-            if let destinationViewController = segue.destinationViewController as? EnglishViewController {
-                if let definition = sender as? String {
-                    if definition == "Abstraction" {
-                        destinationViewController.titleMsg = "Abstraction"
-                        destinationViewController.definitionMsg = "Abstraction Definition"
-                    } else if definition == "Binary System" {
-                        destinationViewController.titleMsg = "Binary System"
-                        destinationViewController.definitionMsg = "Binary System Definition"
-                    }
-                }
-            }
-        }
-    }*/
-    
+    // Pass score information to the next view controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if (segue.identifier == "timerSegue"){
         let endViewController = segue.destination as! EndViewController
-        endViewController.score = self.scoreLabel.text
+            endViewController.score = self.scoreLabel.text
+        }
     }
     
-   /* override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        // Remove self from navigation hierarchy
-        guard let viewControllers = navigationController?.viewControllers,
-            let index = viewControllers.firstIndex(of: self) else { return }
-        navigationController?.viewControllers.remove(at: index)
-        //HACER ALGO PARA QUE NO SE QUEDEN LAS VIEWS ALMACENADAS O LO QUE SEA QUE PASE
-    }*/
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        score = 0
+        for item in self.enemyArray{
+            item.removeFromSuperview()
+            item.frame = CGRect.zero
+        }
+        for item in self.coinArray{
+            item.removeFromSuperview()
+            item.frame = CGRect.zero
+        }
+        if (self.dragging){
+            self.endDrag()
+        }
+        stopGame = true
+        self.enemyArray.removeAll()
+        self.coinArray.removeAll()
+    }
 }

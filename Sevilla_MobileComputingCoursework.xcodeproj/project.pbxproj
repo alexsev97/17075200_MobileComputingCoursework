@@ -25,6 +25,8 @@
 		7A3A2B3E21AD64E800D9235F /* smw_stomp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A3A2B3D21AD64E800D9235F /* smw_stomp.wav */; };
 		7A4A424921BEF43C000B809D /* EndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4A424821BEF43C000B809D /* EndViewController.swift */; };
 		7A4A424B21BEF47F000B809D /* endScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4A424A21BEF47E000B809D /* endScreen.png */; };
+		7A4B885E21C02FDB0024C517 /* endBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B885D21C02FDB0024C517 /* endBar.png */; };
+		7A4B886021C0303A0024C517 /* endscreentube.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A4B885F21C0303A0024C517 /* endscreentube.png */; };
 		7A652DE121BDF16A00873727 /* coin4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A652DD821BDF16900873727 /* coin4.png */; };
 		7A652DE221BDF16A00873727 /* coin7.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A652DD921BDF16900873727 /* coin7.png */; };
 		7A652DE321BDF16A00873727 /* coin5.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A652DDA21BDF16900873727 /* coin5.png */; };
@@ -39,6 +41,7 @@
 		7A81E91821A6B39E0043FB6F /* marioLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91521A6B39D0043FB6F /* marioLogo.png */; };
 		7A81E91921A6B39E0043FB6F /* iconTransparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91621A6B39D0043FB6F /* iconTransparent.png */; };
 		7A81E91A21A6B39E0043FB6F /* touchLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A81E91721A6B39D0043FB6F /* touchLogo.png */; };
+		7A906E6721C022BB000E9514 /* sm64_coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7A906E6621C022BB000E9514 /* sm64_coin.wav */; };
 		7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECF82190D9B90067495C /* cloud1.png */; };
 		7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA0ECFA2190DA1A0067495C /* cloud2.png */; };
 		7ABD528F218F67360012DC9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD528E218F67360012DC9A /* AppDelegate.swift */; };
@@ -51,6 +54,7 @@
 		7ABD52BD218F68770012DC9A /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7ABD52BC218F68770012DC9A /* ground.jpg */; };
 		7ADB120C21A710A500C5B079 /* hitMario.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB120B21A710A500C5B079 /* hitMario.png */; };
 		7AFCD0A421A5F00300791C89 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AFCD0A321A5F00200791C89 /* icon.png */; };
+		7AFF406721C06F6E00A21215 /* levelMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF406621C06F6E00A21215 /* levelMusic.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,8 @@
 		7A3A2B3D21AD64E800D9235F /* smw_stomp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = smw_stomp.wav; sourceTree = "<group>"; };
 		7A4A424821BEF43C000B809D /* EndViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndViewController.swift; sourceTree = "<group>"; };
 		7A4A424A21BEF47E000B809D /* endScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endScreen.png; sourceTree = "<group>"; };
+		7A4B885D21C02FDB0024C517 /* endBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endBar.png; sourceTree = "<group>"; };
+		7A4B885F21C0303A0024C517 /* endscreentube.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = endscreentube.png; sourceTree = "<group>"; };
 		7A652DD821BDF16900873727 /* coin4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin4.png; sourceTree = "<group>"; };
 		7A652DD921BDF16900873727 /* coin7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin7.png; sourceTree = "<group>"; };
 		7A652DDA21BDF16900873727 /* coin5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin5.png; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		7A81E91521A6B39D0043FB6F /* marioLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = marioLogo.png; sourceTree = "<group>"; };
 		7A81E91621A6B39D0043FB6F /* iconTransparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconTransparent.png; sourceTree = "<group>"; };
 		7A81E91721A6B39D0043FB6F /* touchLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = touchLogo.png; sourceTree = "<group>"; };
+		7A906E6621C022BB000E9514 /* sm64_coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sm64_coin.wav; sourceTree = "<group>"; };
 		7AA0ECF82190D9B90067495C /* cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud1.png; sourceTree = "<group>"; };
 		7AA0ECFA2190DA1A0067495C /* cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cloud2.png; sourceTree = "<group>"; };
 		7ABD528B218F67360012DC9A /* Sevilla_MobileComputingCoursework.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sevilla_MobileComputingCoursework.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +128,7 @@
 		7ABD52BC218F68770012DC9A /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpg; sourceTree = "<group>"; };
 		7ADB120B21A710A500C5B079 /* hitMario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitMario.png; sourceTree = "<group>"; };
 		7AFCD0A321A5F00200791C89 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		7AFF406621C06F6E00A21215 /* levelMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelMusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +199,9 @@
 				7ABD528E218F67360012DC9A /* AppDelegate.swift */,
 				7ABD5290218F67360012DC9A /* ViewController.swift */,
 				7ABD5292218F67360012DC9A /* Main.storyboard */,
+				7AFF406621C06F6E00A21215 /* levelMusic.mp3 */,
+				7A4B885F21C0303A0024C517 /* endscreentube.png */,
+				7A906E6621C022BB000E9514 /* sm64_coin.wav */,
 				7A4A424A21BEF47E000B809D /* endScreen.png */,
 				7A4A424821BEF43C000B809D /* EndViewController.swift */,
 				7A3A2B3D21AD64E800D9235F /* smw_stomp.wav */,
@@ -209,6 +220,7 @@
 				7A14FDFF21933B720048DDBF /* mario2.png */,
 				7A14FDFE21933B720048DDBF /* mario3.png */,
 				7A70EEBC2191F7C400C92C3B /* DraggedImageView.swift */,
+				7A4B885D21C02FDB0024C517 /* endBar.png */,
 				7ABD52BC218F68770012DC9A /* ground.jpg */,
 				7A0C732D2190B72C00C37D91 /* background.jpg */,
 				7ABD5295218F67370012DC9A /* Assets.xcassets */,
@@ -341,16 +353,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A652DE221BDF16A00873727 /* coin7.png in Resources */,
+				7A4B885E21C02FDB0024C517 /* endBar.png in Resources */,
 				7ABD52BD218F68770012DC9A /* ground.jpg in Resources */,
 				7A0C3C0F2195EFC7009D3A23 /* wingkoopa1.png in Resources */,
 				7A652DE321BDF16A00873727 /* coin5.png in Resources */,
 				7A0C3C0E2195EFC7009D3A23 /* wingkoopa2.png in Resources */,
 				7A14FE0121933B720048DDBF /* mario2.png in Resources */,
 				7A652DE921BDF16A00873727 /* coin2.png in Resources */,
+				7A906E6721C022BB000E9514 /* sm64_coin.wav in Resources */,
 				7A0C3C102195EFC7009D3A23 /* wingkoopa3.png in Resources */,
 				7A3A2B3A21AD607E00D9235F /* shell4.png in Resources */,
 				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
 				7A652DE521BDF16A00873727 /* coin1.png in Resources */,
+				7AFF406721C06F6E00A21215 /* levelMusic.mp3 in Resources */,
 				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,
 				7A81E91A21A6B39E0043FB6F /* touchLogo.png in Resources */,
@@ -375,6 +390,7 @@
 				7A3A2B3C21AD607E00D9235F /* shell1.png in Resources */,
 				7ABD5294218F67360012DC9A /* Main.storyboard in Resources */,
 				7A652DE421BDF16A00873727 /* coin8.png in Resources */,
+				7A4B886021C0303A0024C517 /* endscreentube.png in Resources */,
 				7A3A2B3E21AD64E800D9235F /* smw_stomp.wav in Resources */,
 				7A652DE721BDF16A00873727 /* coin3.png in Resources */,
 				7A3A2B3921AD607E00D9235F /* shell2.png in Resources */,
