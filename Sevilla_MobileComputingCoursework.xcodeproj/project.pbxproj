@@ -13,6 +13,8 @@
 		7A0C3C102195EFC7009D3A23 /* wingkoopa3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C0B2195EFC7009D3A23 /* wingkoopa3.png */; };
 		7A0C3C112195EFC7009D3A23 /* wingkoopa4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C3C0C2195EFC7009D3A23 /* wingkoopa4.png */; };
 		7A0C732E2190B72C00C37D91 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C732D2190B72C00C37D91 /* background.jpg */; };
+		7A0C8C9621C6813F009E362C /* highscoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C8C9521C6813F009E362C /* highscoreScreen.png */; };
+		7A0C8C9821C681CC009E362C /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0C8C9721C681CC009E362C /* HighScoreViewController.swift */; };
 		7A14FE0021933B720048DDBF /* mario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFE21933B720048DDBF /* mario3.png */; };
 		7A14FE0121933B720048DDBF /* mario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFF21933B720048DDBF /* mario2.png */; };
 		7A14FE05219371E70048DDBF /* dmario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE02219371E60048DDBF /* dmario3.png */; };
@@ -53,6 +55,7 @@
 		7ABD52AF218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD52AE218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift */; };
 		7ABD52BD218F68770012DC9A /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7ABD52BC218F68770012DC9A /* ground.jpg */; };
 		7ADB120C21A710A500C5B079 /* hitMario.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB120B21A710A500C5B079 /* hitMario.png */; };
+		7AFC6C0821C2DF8600E15488 /* endGameSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AFC6C0721C2DF8600E15488 /* endGameSong.mp3 */; };
 		7AFCD0A421A5F00300791C89 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AFCD0A321A5F00200791C89 /* icon.png */; };
 		7AFF406721C06F6E00A21215 /* levelMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AFF406621C06F6E00A21215 /* levelMusic.mp3 */; };
 /* End PBXBuildFile section */
@@ -81,6 +84,8 @@
 		7A0C3C0B2195EFC7009D3A23 /* wingkoopa3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa3.png; sourceTree = "<group>"; };
 		7A0C3C0C2195EFC7009D3A23 /* wingkoopa4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wingkoopa4.png; sourceTree = "<group>"; };
 		7A0C732D2190B72C00C37D91 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		7A0C8C9521C6813F009E362C /* highscoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscoreScreen.png; sourceTree = "<group>"; };
+		7A0C8C9721C681CC009E362C /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		7A14FDFE21933B720048DDBF /* mario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario3.png; sourceTree = "<group>"; };
 		7A14FDFF21933B720048DDBF /* mario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario2.png; sourceTree = "<group>"; };
 		7A14FE02219371E60048DDBF /* dmario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario3.png; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 		7ABD52B0218F67380012DC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABD52BC218F68770012DC9A /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpg; sourceTree = "<group>"; };
 		7ADB120B21A710A500C5B079 /* hitMario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitMario.png; sourceTree = "<group>"; };
+		7AFC6C0721C2DF8600E15488 /* endGameSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endGameSong.mp3; sourceTree = "<group>"; };
 		7AFCD0A321A5F00200791C89 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		7AFF406621C06F6E00A21215 /* levelMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = levelMusic.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +205,9 @@
 				7ABD528E218F67360012DC9A /* AppDelegate.swift */,
 				7ABD5290218F67360012DC9A /* ViewController.swift */,
 				7ABD5292218F67360012DC9A /* Main.storyboard */,
+				7A0C8C9721C681CC009E362C /* HighScoreViewController.swift */,
+				7A0C8C9521C6813F009E362C /* highscoreScreen.png */,
+				7AFC6C0721C2DF8600E15488 /* endGameSong.mp3 */,
 				7AFF406621C06F6E00A21215 /* levelMusic.mp3 */,
 				7A4B885F21C0303A0024C517 /* endscreentube.png */,
 				7A906E6621C022BB000E9514 /* sm64_coin.wav */,
@@ -382,6 +391,7 @@
 				7AFCD0A421A5F00300791C89 /* icon.png in Resources */,
 				7ABD5296218F67370012DC9A /* Assets.xcassets in Resources */,
 				7A14FE06219371E70048DDBF /* dmario1.png in Resources */,
+				7AFC6C0821C2DF8600E15488 /* endGameSong.mp3 in Resources */,
 				7A14FE05219371E70048DDBF /* dmario3.png in Resources */,
 				7ADB120C21A710A500C5B079 /* hitMario.png in Resources */,
 				7A652DE821BDF16A00873727 /* coin6.png in Resources */,
@@ -393,6 +403,7 @@
 				7A4B886021C0303A0024C517 /* endscreentube.png in Resources */,
 				7A3A2B3E21AD64E800D9235F /* smw_stomp.wav in Resources */,
 				7A652DE721BDF16A00873727 /* coin3.png in Resources */,
+				7A0C8C9621C6813F009E362C /* highscoreScreen.png in Resources */,
 				7A3A2B3921AD607E00D9235F /* shell2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A4A424921BEF43C000B809D /* EndViewController.swift in Sources */,
+				7A0C8C9821C681CC009E362C /* HighScoreViewController.swift in Sources */,
 				7ABD5291218F67360012DC9A /* ViewController.swift in Sources */,
 				7A70EEBD2191F7C500C92C3B /* DraggedImageView.swift in Sources */,
 				7ABD528F218F67360012DC9A /* AppDelegate.swift in Sources */,

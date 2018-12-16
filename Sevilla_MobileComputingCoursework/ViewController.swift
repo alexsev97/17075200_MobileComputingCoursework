@@ -109,11 +109,13 @@ class ViewController: UIViewController, subviewDelegate {
         dynamicItemBehavior = UIDynamicItemBehavior(items: [])
         dynamicAnimator.addBehavior(dynamicItemBehavior)
         
-        gravityBehavior = UIGravityBehavior(items: [marioView])
+        gravityBehavior = UIGravityBehavior.init()
+        //gravityBehavior = UIGravityBehavior(items: [marioView])
         dynamicAnimator.addBehavior(gravityBehavior)
         gravityBehavior.magnitude = 0.4
         
-        collisionBehavior = UICollisionBehavior(items: [marioView])
+        collisionBehavior = UICollisionBehavior.init()
+       // collisionBehavior = UICollisionBehavior(items: [marioView])
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
         dynamicAnimator.addBehavior(collisionBehavior)
         collisionBehavior.addBoundary(withIdentifier: "groundBound" as NSCopying, for: UIBezierPath(rect: groundView.frame))
@@ -122,7 +124,6 @@ class ViewController: UIViewController, subviewDelegate {
         enemyCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
         enemyCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
         dynamicAnimator.addBehavior(enemyCollisionBehavior)
-        enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
         enemyCollisionBehavior.action = {
             for item in self.enemyArray{
@@ -220,6 +221,11 @@ class ViewController: UIViewController, subviewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
+        marioView.frame = CGRect(x: 40, y: 75, width: 46, height: 75)
+        gravityBehavior.addItem(marioView)
+        collisionBehavior.addItem(marioView)
+        //enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
+        
         // Call function to start random generation of enemies and coins
         stopGame = false
         generateEnemy()
@@ -238,7 +244,7 @@ class ViewController: UIViewController, subviewDelegate {
         }
         
         // Timer for game end
-        let endGame = DispatchTime.now() + 20.5
+        let endGame = DispatchTime.now() + 10//20.5
         DispatchQueue.main.asyncAfter(deadline: endGame) {
             print("The game has ended")
             self.performSegue(withIdentifier: "timerSegue", sender: self)
@@ -342,7 +348,7 @@ class ViewController: UIViewController, subviewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if (segue.identifier == "timerSegue"){
         let endViewController = segue.destination as! EndViewController
-            endViewController.score = self.scoreLabel.text
+            endViewController.score = self.score
         }
     }
     
@@ -360,6 +366,10 @@ class ViewController: UIViewController, subviewDelegate {
         if (self.dragging){
             self.endDrag()
         }
+        gravityBehavior.removeItem(marioView)
+        collisionBehavior.removeItem(marioView)
+        enemyCollisionBehavior.removeAllBoundaries()
+
         stopGame = true
         self.enemyArray.removeAll()
         self.coinArray.removeAll()
