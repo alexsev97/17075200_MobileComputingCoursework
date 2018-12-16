@@ -25,6 +25,7 @@ class EndViewController: UIViewController {
     
     @IBAction func replayButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        self.endMusic?.stop()
     }
     
     @IBAction func scoresButton(_ sender: Any) {
@@ -69,11 +70,6 @@ class EndViewController: UIViewController {
             let hsViewController = segue.destination as! HighScoreViewController
             hsViewController.highScores = self.highScoreArray
         }
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-         self.endMusic?.stop()
     }
     
 

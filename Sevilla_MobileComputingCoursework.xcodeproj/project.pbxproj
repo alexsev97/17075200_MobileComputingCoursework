@@ -15,6 +15,7 @@
 		7A0C732E2190B72C00C37D91 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C732D2190B72C00C37D91 /* background.jpg */; };
 		7A0C8C9621C6813F009E362C /* highscoreScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C8C9521C6813F009E362C /* highscoreScreen.png */; };
 		7A0C8C9821C681CC009E362C /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0C8C9721C681CC009E362C /* HighScoreViewController.swift */; };
+		7A0C8C9C21C6DFFC009E362C /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A0C8C9B21C6DFFC009E362C /* arrow.png */; };
 		7A14FE0021933B720048DDBF /* mario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFE21933B720048DDBF /* mario3.png */; };
 		7A14FE0121933B720048DDBF /* mario2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FDFF21933B720048DDBF /* mario2.png */; };
 		7A14FE05219371E70048DDBF /* dmario3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A14FE02219371E60048DDBF /* dmario3.png */; };
@@ -86,6 +87,7 @@
 		7A0C732D2190B72C00C37D91 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		7A0C8C9521C6813F009E362C /* highscoreScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = highscoreScreen.png; sourceTree = "<group>"; };
 		7A0C8C9721C681CC009E362C /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		7A0C8C9B21C6DFFC009E362C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		7A14FDFE21933B720048DDBF /* mario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario3.png; sourceTree = "<group>"; };
 		7A14FDFF21933B720048DDBF /* mario2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mario2.png; sourceTree = "<group>"; };
 		7A14FE02219371E60048DDBF /* dmario3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dmario3.png; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 		7ABD528D218F67360012DC9A /* Sevilla_MobileComputingCoursework */ = {
 			isa = PBXGroup;
 			children = (
+				7A0C8C9B21C6DFFC009E362C /* arrow.png */,
 				7A652DDC21BDF16900873727 /* coin1.png */,
 				7A652DE021BDF16A00873727 /* coin2.png */,
 				7A652DDE21BDF16900873727 /* coin3.png */,
@@ -374,6 +377,7 @@
 				7A3A2B3A21AD607E00D9235F /* shell4.png in Resources */,
 				7AA0ECFB2190DA1A0067495C /* cloud2.png in Resources */,
 				7A652DE521BDF16A00873727 /* coin1.png in Resources */,
+				7A0C8C9C21C6DFFC009E362C /* arrow.png in Resources */,
 				7AFF406721C06F6E00A21215 /* levelMusic.mp3 in Resources */,
 				7AA0ECF92190D9BA0067495C /* cloud1.png in Resources */,
 				7A0C732E2190B72C00C37D91 /* background.jpg in Resources */,

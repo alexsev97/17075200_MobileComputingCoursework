@@ -244,7 +244,7 @@ class ViewController: UIViewController, subviewDelegate {
         }
         
         // Timer for game end
-        let endGame = DispatchTime.now() + 10//20.5
+        let endGame = DispatchTime.now() + 20.5
         DispatchQueue.main.asyncAfter(deadline: endGame) {
             print("The game has ended")
             self.performSegue(withIdentifier: "timerSegue", sender: self)
