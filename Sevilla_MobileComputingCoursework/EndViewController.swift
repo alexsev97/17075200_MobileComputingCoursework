@@ -53,11 +53,11 @@ class EndViewController: UIViewController {
         }
         highScoreArray.insert(score, at: highScoreArray.index(where: {$0 < score}) ?? highScoreArray.endIndex)
         if (highScoreArray.count <= 5){
-            congratulationsLabel.text = "Highscore!"
+            congratulationsLabel.text = "NEW RECORD!"
         }
         else{
             if (highScoreArray.popLast() != score){
-                congratulationsLabel.text = "Highscore!"
+                congratulationsLabel.text = "NEW RECORD!"
             }
         }
         highScoreDefault.set(highScoreArray, forKey: "highscore")
@@ -65,12 +65,12 @@ class EndViewController: UIViewController {
         highScoreDefault.synchronize()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "highScoreSegue"){
             let hsViewController = segue.destination as! HighScoreViewController
             hsViewController.highScores = self.highScoreArray
         }
-    }
+    }*/
     
 
     /*

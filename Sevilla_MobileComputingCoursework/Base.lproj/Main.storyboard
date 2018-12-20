@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iMC-II-uX3">
     <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,87 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="PR0-7L-8s1">
+            <objects>
+                <viewController id="iMC-II-uX3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Kv-Bw-6a8">
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marioLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ifq-6d-Tj9">
+                                <rect key="frame" x="270" y="20" width="196" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ifq-6d-Tj9" secondAttribute="height" multiplier="196:90" id="3L3-iX-1Hr"/>
+                                    <constraint firstAttribute="width" constant="191" id="4as-VS-Zxh"/>
+                                    <constraint firstAttribute="height" constant="90" id="h9P-fB-vXQ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="DZU-Bk-kG9">
+                                <rect key="frame" x="334.66666666666669" y="118" width="67" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DZU-Bk-kG9" secondAttribute="height" multiplier="67:16" id="GMk-sO-DYI"/>
+                                    <constraint firstAttribute="width" constant="67" id="T7d-89-TEZ"/>
+                                    <constraint firstAttribute="height" constant="16" id="d3L-gi-Q0Q"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="initialScreen1.png" translatesAutoresizingMaskIntoConstraints="NO" id="w54-HR-BCT">
+                                <rect key="frame" x="48" y="240" width="138" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="138" id="LVQ-kE-bID"/>
+                                    <constraint firstAttribute="height" constant="174" id="Sq3-iW-f9q"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0z-rN-tgX">
+                                <rect key="frame" x="282" y="191" width="173" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="START GAME">
+                                    <color key="titleColor" red="0.85669499640000002" green="0.105570443" blue="0.1046659574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="APo-41-Kay"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3x-qn-H83">
+                                <rect key="frame" x="282" y="271" width="173" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="HIGH SCORES">
+                                    <color key="titleColor" red="0.85669499640000002" green="0.105570443" blue="0.1046659574" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ch5-3I-EYS" kind="showDetail" id="5nE-oI-BQK"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="koopaparatroopa.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uds-E0-kd6">
+                                <rect key="frame" x="550" y="240" width="138" height="174"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88996714349999995" green="0.47185248140000002" blue="0.4708975554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="DZU-Bk-kG9" firstAttribute="top" secondItem="Ifq-6d-Tj9" secondAttribute="bottom" constant="8" id="05I-2P-37f"/>
+                            <constraint firstItem="Ifq-6d-Tj9" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="17k-CD-HS1"/>
+                            <constraint firstItem="Uds-E0-kd6" firstAttribute="bottom" secondItem="AaD-I1-yuq" secondAttribute="bottom" id="Aed-98-CbO"/>
+                            <constraint firstItem="w54-HR-BCT" firstAttribute="leading" secondItem="7Kv-Bw-6a8" secondAttribute="leading" constant="48" id="Fgv-kq-EYn"/>
+                            <constraint firstItem="Uds-E0-kd6" firstAttribute="width" secondItem="w54-HR-BCT" secondAttribute="width" id="Kb0-8W-DTS"/>
+                            <constraint firstItem="Ifq-6d-Tj9" firstAttribute="top" secondItem="AaD-I1-yuq" secondAttribute="top" constant="20" id="Oyd-xO-VJS"/>
+                            <constraint firstItem="w54-HR-BCT" firstAttribute="bottom" secondItem="7Kv-Bw-6a8" secondAttribute="bottom" id="YZQ-Cw-n34"/>
+                            <constraint firstItem="Uds-E0-kd6" firstAttribute="height" secondItem="w54-HR-BCT" secondAttribute="height" id="ccI-o2-nJl"/>
+                            <constraint firstItem="AaD-I1-yuq" firstAttribute="trailing" secondItem="Uds-E0-kd6" secondAttribute="trailing" constant="48" id="pyV-6t-9lc"/>
+                            <constraint firstItem="DZU-Bk-kG9" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="wG9-Nv-Zwa"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="AaD-I1-yuq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2cH-dj-oaE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-542.11956521739137" y="121.73913043478262"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -116,7 +197,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDe-J6-WQV">
                                 <rect key="frame" x="114" y="109" width="112" height="43"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.26210159063339233" green="0.67331701517105103" blue="0.95184928178787231" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Replay">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -136,7 +217,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xhb-1U-AV5">
                                 <rect key="frame" x="114" y="232" width="112" height="43"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.48221683502197266" green="0.86123126745223999" blue="0.99951273202896118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="112" id="CsS-iJ-Sxe"/>
                                     <constraint firstAttribute="height" constant="43" id="lGp-ww-Hr7"/>
@@ -228,9 +309,11 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Ncd-Z2-MQ6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.1214051619" green="0.12528741360000001" blue="0.13773781060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <size key="shadowOffset" width="-1" height="-1"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iap-Z8-Nak">
                                 <rect key="frame" x="20" y="20" width="69" height="69"/>
@@ -278,6 +361,13 @@
         <image name="endscreentube.png" width="235" height="300"/>
         <image name="ground.jpg" width="1148" height="77"/>
         <image name="highscoreScreen.png" width="2097" height="1311"/>
+        <image name="initialScreen1.png" width="1754" height="2169"/>
+        <image name="koopaparatroopa.png" width="1102" height="1509"/>
         <image name="mario1.png" width="50" height="90"/>
+        <image name="marioLogo.png" width="1280" height="599"/>
+        <image name="touchLogo.png" width="314" height="69"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5uu-ds-rMd"/>
+    </inferredMetricsTieBreakers>
 </document>

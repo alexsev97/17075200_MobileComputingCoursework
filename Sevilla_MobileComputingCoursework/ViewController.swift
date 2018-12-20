@@ -214,7 +214,7 @@ class ViewController: UIViewController, subviewDelegate {
         
         // Coin animation
         coinImageArray = [UIImage(named: "coin1.png")!,UIImage(named:"coin2.png")!,UIImage(named:"coin3.png")!,UIImage(named:"coin4.png")!,UIImage(named:"coin5.png")!,UIImage(named:"coin6.png")!,UIImage(named:"coin7.png")!,UIImage(named:"coin8.png")!,UIImage(named:"coin9.png")! ]
-        coinImage = UIImage.animatedImage(with: coinImageArray, duration: 0.5)
+        coinImage = UIImage.animatedImage(with: coinImageArray, duration: 1)
         coinArray = Array<UIImageView>()
     }
     
@@ -323,6 +323,7 @@ class ViewController: UIViewController, subviewDelegate {
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
+        enemyCollisionBehavior.removeAllBoundaries()
     }
     
     // Check for collision from Mario with the ground

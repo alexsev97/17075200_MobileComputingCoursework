@@ -19,6 +19,10 @@ class HighScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let highScoreDefault = UserDefaults.init()
+        if (highScoreDefault.array(forKey: "highscore") != nil){
+            highScores = highScoreDefault.array(forKey: "highscore") as! [Int]
+        }
         hsText.numberOfLines = 6
         print(highScores)
         
