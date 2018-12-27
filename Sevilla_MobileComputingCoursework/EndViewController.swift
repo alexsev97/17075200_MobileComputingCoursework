@@ -41,6 +41,7 @@ class EndViewController: UIViewController {
          do{
             self.endMusic = try AVAudioPlayer(contentsOf: self.endMusicUrl!)
             self.endMusic?.play()
+            self.endMusic?.volume = 0.6
             self.endMusic?.numberOfLoops = -1
          }
          catch{

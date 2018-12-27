@@ -56,6 +56,7 @@
 		7ABD52A4218F67380012DC9A /* Sevilla_MobileComputingCourseworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD52A3218F67380012DC9A /* Sevilla_MobileComputingCourseworkTests.swift */; };
 		7ABD52AF218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABD52AE218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift */; };
 		7ABD52BD218F68770012DC9A /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7ABD52BC218F68770012DC9A /* ground.jpg */; };
+		7ABF796D21D4FE3200C15B59 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ABF796C21D4FE3200C15B59 /* StartViewController.swift */; };
 		7ADB120C21A710A500C5B079 /* hitMario.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADB120B21A710A500C5B079 /* hitMario.png */; };
 		7ADD28A221CA85E5009F1997 /* initialScreen1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADD28A121CA85E5009F1997 /* initialScreen1.png */; };
 		7AFC6C0821C2DF8600E15488 /* endGameSong.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7AFC6C0721C2DF8600E15488 /* endGameSong.mp3 */; };
@@ -136,6 +137,7 @@
 		7ABD52AE218F67380012DC9A /* Sevilla_MobileComputingCourseworkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sevilla_MobileComputingCourseworkUITests.swift; sourceTree = "<group>"; };
 		7ABD52B0218F67380012DC9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7ABD52BC218F68770012DC9A /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpg; sourceTree = "<group>"; };
+		7ABF796C21D4FE3200C15B59 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		7ADB120B21A710A500C5B079 /* hitMario.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hitMario.png; sourceTree = "<group>"; };
 		7ADD28A121CA85E5009F1997 /* initialScreen1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = initialScreen1.png; sourceTree = "<group>"; };
 		7AFC6C0721C2DF8600E15488 /* endGameSong.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = endGameSong.mp3; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				7ABD5295218F67370012DC9A /* Assets.xcassets */,
 				7ABD5297218F67370012DC9A /* LaunchScreen.storyboard */,
 				7ABD529A218F67370012DC9A /* Info.plist */,
+				7ABF796C21D4FE3200C15B59 /* StartViewController.swift */,
 			);
 			path = Sevilla_MobileComputingCoursework;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				7ABD5291218F67360012DC9A /* ViewController.swift in Sources */,
 				7A70EEBD2191F7C500C92C3B /* DraggedImageView.swift in Sources */,
 				7ABD528F218F67360012DC9A /* AppDelegate.swift in Sources */,
+				7ABF796D21D4FE3200C15B59 /* StartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

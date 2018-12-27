@@ -33,6 +33,7 @@ class ViewController: UIViewController, subviewDelegate {
     
     // Stop game
     var stopGame = false
+    var level = 0
     
     // Enemy character images
     var koopaImage: UIImage!
@@ -176,7 +177,7 @@ class ViewController: UIViewController, subviewDelegate {
         coinCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
         coinCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
         dynamicAnimator.addBehavior(coinCollisionBehavior)
-        coinCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
+       // coinCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
         coinCollisionBehavior.action = {
             for item in self.coinArray{
@@ -225,6 +226,10 @@ class ViewController: UIViewController, subviewDelegate {
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
         //enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
+        
+        // Everytime the view appears, we increase the level of the game
+        // That way we make it a challenge, with more enemies that move faster
+        level += 1
         
         // Call function to start random generation of enemies and coins
         stopGame = false
@@ -275,12 +280,32 @@ class ViewController: UIViewController, subviewDelegate {
             newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
             enemyArray.append(newEnemy)
             self.view.addSubview(newEnemy)
-            let speed = Int.random(in: -200 ..< -100)
+            var speed: Int = 0
+            var delay: Float = 0.0
+            if (level == 1){
+                speed = Int.random(in: -150 ..< -100)
+                delay = Float.random(in: 4 ..< 4.5)
+            }
+            else if (level == 2){
+                speed = Int.random(in: -200 ..< -150)
+                delay = Float.random(in: 3.25 ..< 4)
+            }
+            else if (level == 3){
+                speed = Int.random(in: -250 ..< -200)
+                delay = Float.random(in: 2.5 ..< 3.75)
+            }
+            else if (level == 4){
+                speed = Int.random(in: -300 ..< -250)
+                delay = Float.random(in: 1.5 ..< 3)
+            }
+            else if (level >= 5){
+                speed = Int.random(in: -350 ..< -300)
+                delay = Float.random(in: 0.7 ..< 1.5)
+            }
             self.moveAndDestroy(newEnemy, speed: speed)
             enemyCollisionBehavior.addItem(newEnemy)
             
             // We call this function again after a random delay
-            let delay = Float.random(in: 0.7 ..< 4.5)
             let enemyDelay =  DispatchTime.now() + Double(delay)
             DispatchQueue.main.asyncAfter(deadline: enemyDelay) {
                 self.generateEnemy()
@@ -300,8 +325,25 @@ class ViewController: UIViewController, subviewDelegate {
             self.moveAndDestroy(newCoin, speed: speed)
             coinCollisionBehavior.addItem(newCoin)
             
+            var delay: Float = 0
+            
+            if (level == 1){
+                delay = Float.random(in: 4 ..< 4.3)
+            }
+            else if (level == 2){
+                delay = Float.random(in: 3.25 ..< 4)
+            }
+            else if (level == 3){
+                delay = Float.random(in: 2.5 ..< 3.75)
+            }
+            else if (level == 4){
+                delay = Float.random(in: 1.5 ..< 3)
+            }
+            else if (level >= 5){
+                delay = Float.random(in: 0.9 ..< 1.5)
+            }
+            
             // We call this function again after a random delay
-            let delay = Float.random(in: 0.9 ..< 4.3)
             let coinDelay =  DispatchTime.now() + Double(delay)
             DispatchQueue.main.asyncAfter(deadline: coinDelay) {
                 self.generateCoin()

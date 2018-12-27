@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="PR0-7L-8s1">
             <objects>
-                <viewController id="iMC-II-uX3" sceneMemberID="viewController">
+                <viewController id="iMC-II-uX3" customClass="StartViewController" customModule="Sevilla_MobileComputingCoursework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Kv-Bw-6a8">
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -40,9 +40,8 @@
                                     <constraint firstAttribute="height" constant="174" id="Sq3-iW-f9q"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0z-rN-tgX">
-                                <rect key="frame" x="282" y="191" width="173" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J0z-rN-tgX">
+                                <rect key="frame" x="305.66666666666669" y="214" width="125" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="START GAME">
@@ -50,12 +49,11 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" id="APo-41-Kay"/>
+                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="startSegue" id="APo-41-Kay"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3x-qn-H83">
-                                <rect key="frame" x="282" y="271" width="173" height="58"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3x-qn-H83">
+                                <rect key="frame" x="301.66666666666669" y="294" width="133" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
                                 <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" title="HIGH SCORES">
@@ -76,12 +74,16 @@
                             <constraint firstItem="Ifq-6d-Tj9" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="17k-CD-HS1"/>
                             <constraint firstItem="Uds-E0-kd6" firstAttribute="bottom" secondItem="AaD-I1-yuq" secondAttribute="bottom" id="Aed-98-CbO"/>
                             <constraint firstItem="w54-HR-BCT" firstAttribute="leading" secondItem="7Kv-Bw-6a8" secondAttribute="leading" constant="48" id="Fgv-kq-EYn"/>
+                            <constraint firstItem="AaD-I1-yuq" firstAttribute="bottom" secondItem="J3x-qn-H83" secondAttribute="bottom" constant="85" id="Hdf-8n-4eC"/>
+                            <constraint firstItem="J3x-qn-H83" firstAttribute="top" secondItem="J0z-rN-tgX" secondAttribute="bottom" constant="45" id="I96-vq-amR"/>
                             <constraint firstItem="Uds-E0-kd6" firstAttribute="width" secondItem="w54-HR-BCT" secondAttribute="width" id="Kb0-8W-DTS"/>
                             <constraint firstItem="Ifq-6d-Tj9" firstAttribute="top" secondItem="AaD-I1-yuq" secondAttribute="top" constant="20" id="Oyd-xO-VJS"/>
                             <constraint firstItem="w54-HR-BCT" firstAttribute="bottom" secondItem="7Kv-Bw-6a8" secondAttribute="bottom" id="YZQ-Cw-n34"/>
                             <constraint firstItem="Uds-E0-kd6" firstAttribute="height" secondItem="w54-HR-BCT" secondAttribute="height" id="ccI-o2-nJl"/>
+                            <constraint firstItem="J0z-rN-tgX" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="dqJ-cG-dKU"/>
                             <constraint firstItem="AaD-I1-yuq" firstAttribute="trailing" secondItem="Uds-E0-kd6" secondAttribute="trailing" constant="48" id="pyV-6t-9lc"/>
                             <constraint firstItem="DZU-Bk-kG9" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="wG9-Nv-Zwa"/>
+                            <constraint firstItem="J3x-qn-H83" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="whi-Su-YN3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AaD-I1-yuq"/>
                     </view>
@@ -368,6 +370,6 @@
         <image name="touchLogo.png" width="314" height="69"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5uu-ds-rMd"/>
+        <segue reference="5nE-oI-BQK"/>
     </inferredMetricsTieBreakers>
 </document>
