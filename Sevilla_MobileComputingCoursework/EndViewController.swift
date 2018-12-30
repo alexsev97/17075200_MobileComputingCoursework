@@ -24,7 +24,9 @@ class EndViewController: UIViewController {
     
     
     @IBAction func replayButton(_ sender: Any) {
+        // Dismiss view
         self.dismiss(animated: true, completion: nil)
+        // Stop playing music because the game has its own
         self.endMusic?.stop()
     }
     
@@ -35,7 +37,7 @@ class EndViewController: UIViewController {
         super.viewDidLoad()
         print("appear!")
         scoreLabel.text = "Score: " + String(score)
-        
+        // Play music
         endMusicPath = Bundle.main.path(forResource:"endGameSong.mp3", ofType: nil)!
         endMusicUrl = URL(fileURLWithPath: endMusicPath!)
          do{
@@ -48,40 +50,29 @@ class EndViewController: UIViewController {
             print("Couldn't load audio file")
         }
         
+        // Load high scores
         let highScoreDefault = UserDefaults.init()
         if (highScoreDefault.array(forKey: "highscore") != nil){
             highScoreArray = highScoreDefault.array(forKey: "highscore") as! [Int]
         }
+        // Insert the new score in the vectore (if it is a high score)
         highScoreArray.insert(score, at: highScoreArray.index(where: {$0 < score}) ?? highScoreArray.endIndex)
+        // If there is less then 5, it is always going to be a high score
         if (highScoreArray.count <= 5){
             congratulationsLabel.text = "NEW RECORD!"
         }
         else{
+            // We take out the last element of the vector (so that there's always 5)
+            // If the last element doesn't match the score by the player, it's a high score
             if (highScoreArray.popLast() != score){
                 congratulationsLabel.text = "NEW RECORD!"
             }
         }
+        // We store the new vector in the memory
         highScoreDefault.set(highScoreArray, forKey: "highscore")
+        // Uncomment this line to reset the high score array
        // highScoreDefault.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         highScoreDefault.synchronize()
     }
-    
-  /*  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "highScoreSegue"){
-            let hsViewController = segue.destination as! HighScoreViewController
-            hsViewController.highScores = self.highScoreArray
-        }
-    }*/
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

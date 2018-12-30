@@ -18,33 +18,22 @@ class HighScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Load high scores
         let highScoreDefault = UserDefaults.init()
         if (highScoreDefault.array(forKey: "highscore") != nil){
             highScores = highScoreDefault.array(forKey: "highscore") as! [Int]
         }
         hsText.numberOfLines = 6
-        print(highScores)
         
         hsText.text = "HIGHSCORES\n"
         var pos = 1
-        
+        // Configure the text label for the high scores
         for item in highScores{
             hsText.text?.append(String(pos) + ": " + String(item) + "\n")
             pos += 1
         }
+        // Remove the last line break
         hsText.text?.popLast()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

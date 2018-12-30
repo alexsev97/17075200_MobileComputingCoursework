@@ -76,6 +76,7 @@ class ViewController: UIViewController, subviewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Make the layout work in every iOS device
         self.view.layoutIfNeeded()
         
         self.view.addSubview(background1View)
@@ -98,6 +99,7 @@ class ViewController: UIViewController, subviewDelegate {
         levelMusicPath = Bundle.main.path(forResource:"levelMusic.mp3", ofType: nil)!
         levelMusicUrl = URL(fileURLWithPath: levelMusicPath!)
         
+        // MOve the background
         self.moveInLoop(self.background1View, duration: 15, translation: -528)
         self.moveInLoop(self.background2View, duration: 15, translation: -528)
         self.moveInLoop(self.background3View, duration: 15, translation: -528)
@@ -105,22 +107,23 @@ class ViewController: UIViewController, subviewDelegate {
         self.moveInLoop(self.cloud1View, duration: 23, translation: -150)
         self.moveInLoop(self.cloud2View, duration: 23, translation: -500)
         
+        // Initiate dynamic animator
         dynamicAnimator = UIDynamicAnimator(referenceView: self.view)
-        
         dynamicItemBehavior = UIDynamicItemBehavior(items: [])
         dynamicAnimator.addBehavior(dynamicItemBehavior)
         
+        // Initiate gravity behaviour
         gravityBehavior = UIGravityBehavior.init()
-        //gravityBehavior = UIGravityBehavior(items: [marioView])
         dynamicAnimator.addBehavior(gravityBehavior)
         gravityBehavior.magnitude = 0.4
         
+        // Initiate collision behaviour (Mario with the ground)
         collisionBehavior = UICollisionBehavior.init()
-       // collisionBehavior = UICollisionBehavior(items: [marioView])
         collisionBehavior.translatesReferenceBoundsIntoBoundary = true
         dynamicAnimator.addBehavior(collisionBehavior)
         collisionBehavior.addBoundary(withIdentifier: "groundBound" as NSCopying, for: UIBezierPath(rect: groundView.frame))
         
+        // Initiate collision behaviour (enemies with Mario)
         enemyCollisionBehavior = UICollisionBehavior.init()
         enemyCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
         enemyCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
@@ -128,10 +131,11 @@ class ViewController: UIViewController, subviewDelegate {
         
         enemyCollisionBehavior.action = {
             for item in self.enemyArray{
+                // Check every item for intersection with Mario
                 if(item.frame.intersects(self.marioView.frame)) {
-                    print(self.enemyArray.count)
                     self.score -= 5
                     self.updateScore() // Update score text label
+                    // Remove all behaviours from item
                     self.dynamicItemBehavior.removeItem(item)
                     self.enemyCollisionBehavior.removeItem(item)
                     let oldFrame = item.frame
@@ -162,7 +166,6 @@ class ViewController: UIViewController, subviewDelegate {
                     
                     // Play sound
                     do{
-                        print("sound")
                         self.kickSoundEffect = try AVAudioPlayer(contentsOf: self.kickUrl!)
                         self.kickSoundEffect?.play()
                     }
@@ -173,14 +176,15 @@ class ViewController: UIViewController, subviewDelegate {
             }
         }
         
+        // Initiate collision behaviour (coins with Mario)
         coinCollisionBehavior = UICollisionBehavior.init()
         coinCollisionBehavior.collisionMode = UICollisionBehavior.Mode.boundaries
         coinCollisionBehavior.translatesReferenceBoundsIntoBoundary = false
         dynamicAnimator.addBehavior(coinCollisionBehavior)
-       // coinCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
         coinCollisionBehavior.action = {
             for item in self.coinArray{
+                // Check every coin for intersection with Mario
                 if(item.frame.intersects(self.marioView.frame)) {
                     self.score += 15
                     self.updateScore() // Update score text label
@@ -221,11 +225,10 @@ class ViewController: UIViewController, subviewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
+        // Position Mario to always start in the same place
         marioView.frame = CGRect(x: 40, y: 75, width: 46, height: 75)
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
-        //enemyCollisionBehavior.addBoundary(withIdentifier: "marioBound" as NSCopying, for: UIBezierPath(rect: marioView.frame))
         
         // Everytime the view appears, we increase the level of the game
         // That way we make it a challenge, with more enemies that move faster
@@ -239,6 +242,7 @@ class ViewController: UIViewController, subviewDelegate {
         // Update actual score
         self.updateScore()
         
+        // Start level music
         do{
             self.levelMusic = try AVAudioPlayer(contentsOf: self.levelMusicUrl!)
             self.levelMusic?.play()
@@ -251,7 +255,6 @@ class ViewController: UIViewController, subviewDelegate {
         // Timer for game end
         let endGame = DispatchTime.now() + 20.5
         DispatchQueue.main.asyncAfter(deadline: endGame) {
-            print("The game has ended")
             self.performSegue(withIdentifier: "timerSegue", sender: self)
         }
     }
@@ -266,6 +269,7 @@ class ViewController: UIViewController, subviewDelegate {
             }
         }
     
+    // Function to move enemies and coins (so it works with their collision behaviour)
     func moveAndDestroy(_ image: UIImageView, speed: Int) {
         dynamicItemBehavior.addItem(image)
         dynamicItemBehavior.addLinearVelocity(CGPoint(x: speed, y: 0), for: image)
@@ -274,14 +278,17 @@ class ViewController: UIViewController, subviewDelegate {
     // Function to generate random enemies
     func generateEnemy(){
         if(!stopGame){
+            // Create new enemy
             let newEnemy = UIImageView(image: nil)
             newEnemy.image = koopaImage
+            // Randomise the height in which they appear in the screen
             let yc = Int.random(in: 60 ..< 300)
             newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
             enemyArray.append(newEnemy)
             self.view.addSubview(newEnemy)
             var speed: Int = 0
             var delay: Float = 0.0
+            // According to the level, we create more or less enemies at more or less speed
             if (level == 1){
                 speed = Int.random(in: -150 ..< -100)
                 delay = Float.random(in: 4 ..< 4.5)
@@ -313,10 +320,12 @@ class ViewController: UIViewController, subviewDelegate {
         }
     }
     
+    // Function to generate random coins
     func generateCoin(){
         if(!stopGame){
             let newCoin = UIImageView(image: nil)
             newCoin.image = coinImage
+            // Randomise height of coins
             let yc = Int.random(in: 60 ..< 250)
             newCoin.frame = CGRect(x:Int(UIScreen.main.bounds.width + newCoin.frame.width), y: yc, width: 30, height: 30)
             coinArray.append(newCoin)
@@ -327,6 +336,7 @@ class ViewController: UIViewController, subviewDelegate {
             
             var delay: Float = 0
             
+            // If the player is in a higher level, generate more coins
             if (level == 1){
                 delay = Float.random(in: 4 ..< 4.3)
             }
@@ -355,6 +365,7 @@ class ViewController: UIViewController, subviewDelegate {
     func beginDrag() {
         self.dragging = true
         marioView.image = UIImage.animatedImage(with: draggedImageArray, duration: 0.4)
+        // Remove gravity and collision with boundaries while he is being dragged
         gravityBehavior.removeItem(marioView)
         collisionBehavior.removeItem(marioView)
     }
@@ -362,7 +373,9 @@ class ViewController: UIViewController, subviewDelegate {
     // Function executed when the user stops dragging Mario
     func endDrag() {
         self.dragging = false
+        // Update to non drag image
         marioView.image = UIImage.animatedImage(with: imageArray, duration: 0.4)
+        // Add all behaviours
         gravityBehavior.addItem(marioView)
         collisionBehavior.addItem(marioView)
         enemyCollisionBehavior.removeAllBoundaries()
@@ -395,25 +408,31 @@ class ViewController: UIViewController, subviewDelegate {
         }
     }
     
+    // This function executes when the game has ended
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         score = 0
+        // Remove all enemies
         for item in self.enemyArray{
             item.removeFromSuperview()
             item.frame = CGRect.zero
         }
+        // Remove all coins
         for item in self.coinArray{
             item.removeFromSuperview()
             item.frame = CGRect.zero
         }
+        // Stop dragging
         if (self.dragging){
             self.endDrag()
         }
+        // Remov all behaviours from Mario
         gravityBehavior.removeItem(marioView)
         collisionBehavior.removeItem(marioView)
         enemyCollisionBehavior.removeAllBoundaries()
 
         stopGame = true
+        // Clear arrays
         self.enemyArray.removeAll()
         self.coinArray.removeAll()
     }

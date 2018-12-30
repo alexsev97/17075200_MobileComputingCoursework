@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 
+// View Controller of menu screen
 class StartViewController: UIViewController {
     
     var startMusic: AVAudioPlayer?
@@ -17,6 +18,7 @@ class StartViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Play music
         startMusicPath = Bundle.main.path(forResource:"endGameSong.mp3", ofType: nil)!
         startMusicUrl = URL(fileURLWithPath: startMusicPath!)
         do{
@@ -32,6 +34,7 @@ class StartViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Stop playing music when advancing to the game because it has its own
         if (segue.identifier == "startSegue"){
              self.startMusic?.stop()
         }
