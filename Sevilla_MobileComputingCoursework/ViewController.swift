@@ -282,7 +282,8 @@ class ViewController: UIViewController, subviewDelegate {
             let newEnemy = UIImageView(image: nil)
             newEnemy.image = koopaImage
             // Randomise the height in which they appear in the screen
-            let yc = Int.random(in: 60 ..< 300)
+            let h = UIScreen.main.bounds.height - 100
+            let yc = Int.random(in: 60 ..< Int(h))
             newEnemy.frame = CGRect(x:Int(UIScreen.main.bounds.width + newEnemy.frame.width), y: yc, width: 60, height: 60)
             enemyArray.append(newEnemy)
             self.view.addSubview(newEnemy)

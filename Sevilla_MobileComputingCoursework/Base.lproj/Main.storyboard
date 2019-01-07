@@ -67,6 +67,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="koopaparatroopa.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uds-E0-kd6">
                                 <rect key="frame" x="550" y="240" width="138" height="174"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music and images: © Nintendo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UG6-kl-2Xo">
+                                <rect key="frame" x="575" y="14" width="149" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.88996714349999995" green="0.47185248140000002" blue="0.4708975554" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -76,8 +82,10 @@
                             <constraint firstItem="w54-HR-BCT" firstAttribute="leading" secondItem="7Kv-Bw-6a8" secondAttribute="leading" constant="48" id="Fgv-kq-EYn"/>
                             <constraint firstItem="AaD-I1-yuq" firstAttribute="bottom" secondItem="J3x-qn-H83" secondAttribute="bottom" constant="85" id="Hdf-8n-4eC"/>
                             <constraint firstItem="J3x-qn-H83" firstAttribute="top" secondItem="J0z-rN-tgX" secondAttribute="bottom" constant="45" id="I96-vq-amR"/>
+                            <constraint firstItem="UG6-kl-2Xo" firstAttribute="top" secondItem="AaD-I1-yuq" secondAttribute="top" constant="14" id="J7Y-6k-EVL"/>
                             <constraint firstItem="Uds-E0-kd6" firstAttribute="width" secondItem="w54-HR-BCT" secondAttribute="width" id="Kb0-8W-DTS"/>
                             <constraint firstItem="Ifq-6d-Tj9" firstAttribute="top" secondItem="AaD-I1-yuq" secondAttribute="top" constant="20" id="Oyd-xO-VJS"/>
+                            <constraint firstItem="AaD-I1-yuq" firstAttribute="trailing" secondItem="UG6-kl-2Xo" secondAttribute="trailing" constant="12" id="Wzr-iM-EmV"/>
                             <constraint firstItem="w54-HR-BCT" firstAttribute="bottom" secondItem="7Kv-Bw-6a8" secondAttribute="bottom" id="YZQ-Cw-n34"/>
                             <constraint firstItem="Uds-E0-kd6" firstAttribute="height" secondItem="w54-HR-BCT" secondAttribute="height" id="ccI-o2-nJl"/>
                             <constraint firstItem="J0z-rN-tgX" firstAttribute="centerX" secondItem="7Kv-Bw-6a8" secondAttribute="centerX" id="dqJ-cG-dKU"/>
